@@ -1,0 +1,2548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dhananjay — Junior Web Developer portfolio">
+  <meta name="theme-color" content="#0d1117">
+  <title>Dhananjay — Junior Web Developer</title>
+
+  <style>
+    /* =========================================================
+       DHANANJAY PORTFOLIO — SINGLE FILE EDITION
+       No external CSS/JS dependencies.
+       ========================================================= */
+
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --surface-2: #21262d;
+      --surface-3: #2b3138;
+      --border: #30363d;
+      --border-hover: #484f58;
+      --text: #f0f6fc;
+      --muted: #8b949e;
+      --muted-2: #6e7681;
+      --green: #238636;
+      --green-bright: #3fb950;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+      --yellow: #d29922;
+      --red: #f85149;
+      --shadow: 0 12px 35px rgba(0,0,0,.22);
+      --radius: 10px;
+      --radius-sm: 6px;
+      --max: 1280px;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+              Helvetica, Arial, sans-serif;
+      --mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+              "Liberation Mono", monospace;
+    }
+
+    [data-theme="light"] {
+      --bg: #ffffff;
+      --surface: #f6f8fa;
+      --surface-2: #eef1f4;
+      --surface-3: #d8dee4;
+      --border: #d0d7de;
+      --border-hover: #afb8c1;
+      --text: #1f2328;
+      --muted: #59636e;
+      --muted-2: #6e7781;
+      --green: #1a7f37;
+      --green-bright: #1f883d;
+      --blue: #0969da;
+      --purple: #8250df;
+      --yellow: #9a6700;
+      --red: #cf222e;
+      --shadow: 0 12px 35px rgba(31,35,40,.10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 78px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    body.locked { overflow: hidden; }
+
+    a { color: var(--blue); text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+
+    ::selection { background: rgba(88,166,255,.25); }
+
+    ::-webkit-scrollbar { width: 9px; height: 9px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+    .progress {
+      position: fixed;
+      inset: 0 auto auto 0;
+      height: 3px;
+      width: 0;
+      background: linear-gradient(90deg, var(--green-bright), var(--blue), var(--purple));
+      z-index: 1000;
+    }
+
+    /* ---------- COMMON ---------- */
+
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .muted { color: var(--muted); }
+    .mono { font-family: var(--mono); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      min-height: 36px;
+      padding: 7px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: .18s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: var(--surface-3);
+      border-color: var(--border-hover);
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--green);
+      border-color: var(--green);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--green-bright);
+      border-color: var(--green-bright);
+      color: #fff;
+    }
+
+    .btn-ghost { background: transparent; }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      transition: .18s ease;
+    }
+
+    .icon-btn:hover {
+      background: var(--surface-2);
+      border-color: var(--border-hover);
+    }
+
+    .section {
+      margin: 0 0 34px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 15px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.2px;
+    }
+
+    .section-title .mark { color: var(--green-bright); }
+
+    .section-subtitle {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity .5s ease, transform .5s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 900;
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--text);
+      font-weight: 700;
+      min-width: max-content;
+    }
+
+    .brand-mark {
+      width: 31px;
+      height: 31px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--surface);
+      color: var(--green-bright);
+      font-family: var(--mono);
+      font-weight: 800;
+    }
+
+    .nav-search {
+      width: min(250px, 22vw);
+      min-width: 130px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 10px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .nav-search kbd {
+      margin-left: auto;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1px 5px;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted-2);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      margin-left: auto;
+    }
+
+    .nav-links a {
+      padding: 7px 9px;
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: var(--surface-2);
+      text-decoration: none;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .hamburger { display: none; border-radius: var(--radius-sm); }
+
+    .mobile-menu {
+      display: none;
+      padding: 8px 0 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    .mobile-menu.open { display: block; }
+
+    .mobile-menu a {
+      display: block;
+      padding: 10px;
+      color: var(--text);
+      border-radius: var(--radius-sm);
+    }
+
+    .mobile-menu a:hover {
+      background: var(--surface-2);
+      text-decoration: none;
+    }
+
+    /* ---------- HERO / PROFILE ---------- */
+
+    .layout {
+      display: grid;
+      grid-template-columns: 285px minmax(0, 1fr);
+      gap: 34px;
+      padding: 30px 0 70px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 92px;
+      align-self: start;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 100%;
+      max-width: 285px;
+      aspect-ratio: 1;
+      margin-bottom: 17px;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      box-shadow: 0 0 0 5px var(--surface), 0 0 0 6px var(--border);
+      background: var(--surface-2);
+    }
+
+    .online-ring {
+      position: absolute;
+      right: 13px;
+      bottom: 13px;
+      width: 24px;
+      height: 24px;
+      border: 5px solid var(--bg);
+      border-radius: 50%;
+      background: var(--green-bright);
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .sidebar h1 {
+      font-size: 27px;
+      line-height: 1.2;
+      letter-spacing: -.6px;
+    }
+
+    .handle {
+      margin: 3px 0 12px;
+      color: var(--muted);
+      font-size: 19px;
+      font-weight: 300;
+    }
+
+    .bio {
+      margin-bottom: 14px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .availability {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 11px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(63,185,80,.45);
+      border-radius: 999px;
+      background: rgba(35,134,54,.12);
+      color: var(--green-bright);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      box-shadow: 0 0 0 4px rgba(63,185,80,.12);
+    }
+
+    .meta {
+      display: grid;
+      gap: 9px;
+      padding-bottom: 17px;
+      margin-bottom: 17px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .meta-row {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .socials {
+      display: grid;
+      gap: 7px;
+    }
+
+    .socials a {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--muted);
+      padding: 5px 0;
+    }
+
+    .socials a:hover { color: var(--blue); }
+
+    /* ---------- MAIN HEADER ---------- */
+
+    .hero {
+      margin-bottom: 24px;
+    }
+
+    .hero-title {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -1.6px;
+      margin-bottom: 8px;
+    }
+
+    .hero-title span { color: var(--green-bright); }
+
+    .hero-handle {
+      color: var(--muted);
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .hero-role {
+      color: var(--green-bright);
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .hero-subtitle {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .hero-copy {
+      padding: 18px;
+      margin-bottom: 14px;
+      border-left: 3px solid var(--green-bright);
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    /* ---------- QUICK STATS ---------- */
+
+    .quick-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin: 20px 0 28px;
+    }
+
+    .quick-stat {
+      padding: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: .18s ease;
+    }
+
+    .quick-stat:hover {
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+    }
+
+    .quick-stat strong {
+      display: block;
+      font-family: var(--mono);
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 3px;
+    }
+
+    .quick-stat span { color: var(--muted); font-size: 12px; }
+
+    /* ---------- README ---------- */
+
+    .readme-header {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 10px 15px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+    }
+
+    .readme-body { padding: 24px; }
+
+    .readme-body h2 {
+      font-size: 25px;
+      margin-bottom: 9px;
+    }
+
+    .readme-body h3 {
+      font-size: 16px;
+      margin: 21px 0 9px;
+    }
+
+    .readme-body p {
+      color: var(--muted);
+      margin-bottom: 11px;
+    }
+
+    .about-list {
+      display: grid;
+      gap: 7px;
+      list-style: none;
+      color: var(--muted);
+    }
+
+    .about-list li::before {
+      content: "✓";
+      margin-right: 8px;
+      color: var(--green-bright);
+      font-weight: 800;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 15px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 11px;
+    }
+
+    .code-card {
+      position: relative;
+      margin-top: 17px;
+      padding: 17px;
+      overflow: auto;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .copy-code {
+      position: absolute;
+      top: 9px;
+      right: 9px;
+      padding: 4px 8px;
+      border: 1px solid var(--border);
+      border-radius: 5px;
+      background: var(--surface-2);
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 11px;
+    }
+
+    .kw { color: #ff7b72; }
+    .prop { color: #79c0ff; }
+    .str { color: #a5d6ff; }
+    .comment { color: var(--muted-2); }
+
+    /* ---------- CONTRIBUTIONS ---------- */
+
+    .contrib {
+      padding: 18px;
+      overflow-x: auto;
+    }
+
+    .contrib-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .contrib-scroll { min-width: 720px; }
+
+    .months {
+      height: 19px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      padding-left: 27px;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .graph-row {
+      display: flex;
+      gap: 3px;
+    }
+
+    .day-labels {
+      width: 24px;
+      flex: 0 0 24px;
+      display: grid;
+      grid-template-rows: repeat(7, 12px);
+      gap: 3px;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 9px;
+      text-align: right;
+      padding-right: 2px;
+    }
+
+    .weeks {
+      display: flex;
+      gap: 3px;
+    }
+
+    .week {
+      display: grid;
+      grid-template-rows: repeat(7, 12px);
+      gap: 3px;
+    }
+
+    .day {
+      width: 12px;
+      height: 12px;
+      border-radius: 2px;
+      background: var(--surface-2);
+      cursor: pointer;
+      transition: .1s ease;
+    }
+
+    .day:hover {
+      transform: scale(1.35);
+      outline: 1px solid var(--text);
+      z-index: 2;
+    }
+
+    .day[data-level="1"] { background: #0e4429; }
+    .day[data-level="2"] { background: #006d32; }
+    .day[data-level="3"] { background: #26a641; }
+    .day[data-level="4"] { background: #39d353; }
+
+    [data-theme="light"] .day[data-level="1"] { background: #aceebb; }
+    [data-theme="light"] .day[data-level="2"] { background: #6fdd8b; }
+    [data-theme="light"] .day[data-level="3"] { background: #40c463; }
+    [data-theme="light"] .day[data-level="4"] { background: #1a7f37; }
+
+    .legend {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 4px;
+      margin-top: 11px;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .legend i {
+      width: 12px;
+      height: 12px;
+      display: block;
+      border-radius: 2px;
+      background: var(--surface-2);
+    }
+
+    /* ---------- REPOSITORIES ---------- */
+
+    .repo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .repo {
+      padding: 16px;
+      transition: .18s ease;
+    }
+
+    .repo:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow);
+    }
+
+    .repo-head {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 8px;
+    }
+
+    .repo-name {
+      color: var(--blue);
+      font-weight: 700;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .repo-badge {
+      margin-left: auto;
+      padding: 2px 7px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .repo-desc {
+      min-height: 41px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .repo-tags,
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .lang-dot {
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      margin-right: 4px;
+    }
+
+    .repo-meta {
+      display: flex;
+      gap: 14px;
+      margin-top: 13px;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .repo-action {
+      margin-top: 12px;
+      padding-top: 11px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ---------- PROJECTS ---------- */
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 13px;
+    }
+
+    .filter {
+      padding: 6px 11px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 11px;
+      font-weight: 600;
+      transition: .16s ease;
+    }
+
+    .filter:hover,
+    .filter.active {
+      color: #fff;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    [data-theme="light"] .filter:hover,
+    [data-theme="light"] .filter.active { color: #fff; }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .project {
+      display: flex;
+      flex-direction: column;
+      padding: 18px;
+      min-height: 300px;
+      transition: .18s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+      box-shadow: var(--shadow);
+    }
+
+    .project-type {
+      color: var(--green-bright);
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin-bottom: 5px;
+    }
+
+    .project h3 {
+      font-size: 16px;
+      line-height: 1.35;
+      margin-bottom: 7px;
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .problem {
+      padding: 8px 10px;
+      margin-bottom: 10px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .features {
+      padding-left: 16px;
+      margin-bottom: 12px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .features li { margin: 2px 0; }
+
+    .project-bottom {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .status::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green-bright);
+    }
+
+    /* ---------- SKILLS ---------- */
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .skill-card { padding: 16px; }
+
+    .skill-card h3 {
+      margin-bottom: 11px;
+      color: var(--green-bright);
+      font-size: 14px;
+    }
+
+    .skill {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .skill:last-child { border-bottom: 0; }
+
+    .skill-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .level {
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    .bar {
+      height: 4px;
+      margin-top: 6px;
+      overflow: hidden;
+      border-radius: 99px;
+      background: var(--surface-2);
+    }
+
+    .bar i {
+      display: block;
+      height: 100%;
+      width: var(--width);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--green-bright));
+    }
+
+    /* ---------- EXPERIENCE ---------- */
+
+    .timeline {
+      position: relative;
+      padding-left: 29px;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      top: 8px;
+      bottom: 8px;
+      left: 7px;
+      width: 2px;
+      background: var(--border);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 25px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 5px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green-bright);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 1px var(--green);
+    }
+
+    .timeline-date {
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 10px;
+      margin-bottom: 2px;
+    }
+
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .timeline-org {
+      color: var(--blue);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .timeline-desc {
+      color: var(--muted);
+      font-size: 12px;
+      margin-bottom: 7px;
+    }
+
+    /* ---------- EDUCATION / SERVICES ---------- */
+
+    .edu-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .edu {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 15px;
+    }
+
+    .edu-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: var(--surface-2);
+      color: var(--green-bright);
+    }
+
+    .edu h3 { font-size: 13px; margin-bottom: 2px; }
+    .edu p { color: var(--muted); font-size: 12px; }
+
+    .services {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .service {
+      padding: 15px 10px;
+      text-align: center;
+      color: var(--muted);
+      transition: .18s ease;
+    }
+
+    .service:hover {
+      color: var(--text);
+      transform: translateY(-2px);
+      border-color: var(--border-hover);
+    }
+
+    .service-icon {
+      display: block;
+      margin-bottom: 7px;
+      font-size: 21px;
+    }
+
+    /* ---------- TERMINAL ---------- */
+
+    .terminal {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: #090c10;
+      font-family: var(--mono);
+      box-shadow: var(--shadow);
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 13px;
+      background: #161b22;
+      border-bottom: 1px solid var(--border);
+      color: #8b949e;
+      font-size: 11px;
+    }
+
+    .terminal-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .red { background: #f85149; }
+    .yellow { background: #d29922; }
+    .green { background: #3fb950; }
+
+    .terminal-body {
+      padding: 17px;
+      color: #8b949e;
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .prompt { color: #3fb950; }
+    .command { color: #58a6ff; }
+    .output { color: #f0f6fc; }
+
+    .cursor {
+      display: inline-block;
+      width: 7px;
+      height: 14px;
+      margin-left: 4px;
+      vertical-align: -2px;
+      background: #3fb950;
+      animation: blink 1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ---------- ACTIVITY ---------- */
+
+    .activity {
+      overflow: hidden;
+    }
+
+    .activity-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .activity-item:last-child { border-bottom: 0; }
+
+    .activity-dot {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      border-radius: 50%;
+      background: var(--green-bright);
+    }
+
+    .activity-time {
+      margin-left: auto;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .contact-info,
+    .contact-form { padding: 21px; }
+
+    .contact-info h3 {
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .contact-info > p {
+      color: var(--muted);
+      margin-bottom: 17px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 0;
+      color: var(--muted);
+    }
+
+    .contact-link:hover { color: var(--blue); }
+
+    .form-group { margin-bottom: 13px; }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .input,
+    .textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      color: var(--text);
+      padding: 9px 11px;
+      outline: none;
+      transition: .16s ease;
+    }
+
+    .textarea {
+      min-height: 105px;
+      resize: vertical;
+    }
+
+    .input:focus,
+    .textarea:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(88,166,255,.12);
+    }
+
+    .form-message {
+      min-height: 20px;
+      margin-top: 8px;
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .success { color: var(--green-bright); }
+    .error { color: var(--red); }
+
+    /* ---------- FOOTER / BACK TO TOP ---------- */
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 30px 0 38px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 9px;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-links a { color: var(--muted); }
+    .footer-links a:hover { color: var(--blue); }
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 42px;
+      height: 42px;
+      display: none;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      z-index: 700;
+    }
+
+    .back-top.show { display: grid; }
+
+    /* ---------- MODAL / COMMAND PALETTE ---------- */
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 10vh 16px 20px;
+      background: rgba(0,0,0,.58);
+      backdrop-filter: blur(7px);
+      z-index: 1100;
+    }
+
+    .overlay.open { display: flex; }
+
+    .palette {
+      width: min(620px, 100%);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+
+    .palette-search {
+      width: 100%;
+      padding: 15px 17px;
+      border: 0;
+      border-bottom: 1px solid var(--border);
+      outline: 0;
+      background: transparent;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    .palette-results {
+      max-height: 390px;
+      overflow: auto;
+      padding: 7px;
+    }
+
+    .palette-item {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--text);
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .palette-item:hover,
+    .palette-item.selected { background: var(--surface-2); }
+
+    .palette-item small {
+      margin-left: auto;
+      color: var(--muted-2);
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    .modal {
+      width: min(720px, 100%);
+      max-height: 82vh;
+      overflow: auto;
+      padding: 21px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--surface);
+      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+    }
+
+    .modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 13px;
+    }
+
+    .modal-type {
+      color: var(--green-bright);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+    }
+
+    .modal h2 {
+      margin: 3px 0 7px;
+      font-size: 23px;
+      line-height: 1.25;
+    }
+
+    .modal p { color: var(--muted); }
+
+    .modal-block {
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .modal-block strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
+      .hamburger { display: inline-grid; }
+      .layout { grid-template-columns: 230px minmax(0, 1fr); gap: 25px; }
+      .avatar-wrap { max-width: 230px; }
+      .services { grid-template-columns: repeat(2, 1fr); }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 820px) {
+      .container { width: min(var(--max), calc(100% - 24px)); }
+      .nav-search { display: none; }
+      .layout { display: block; padding-top: 20px; }
+      .sidebar {
+        position: static;
+        margin-bottom: 28px;
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        gap: 4px 18px;
+      }
+      .avatar-wrap {
+        grid-row: 1 / span 5;
+        width: 120px;
+        max-width: none;
+        margin: 0;
+      }
+      .sidebar h1,
+      .sidebar .handle,
+      .sidebar .bio,
+      .sidebar .availability,
+      .sidebar .meta,
+      .sidebar .socials { grid-column: 2; }
+      .sidebar .meta { padding-bottom: 8px; margin-bottom: 4px; }
+      .sidebar .socials { display: flex; flex-wrap: wrap; gap: 13px; }
+      .quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .repo-grid,
+      .project-grid,
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .nav { min-height: 58px; }
+      .nav-actions .icon-btn:first-child { display: none; }
+      .brand span { display: none; }
+      .hero-title { font-size: 31px; }
+      .hero-handle { font-size: 16px; }
+      .readme-body { padding: 17px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .services { grid-template-columns: 1fr 1fr; }
+      .section-head { display: block; }
+      .section-subtitle { margin-top: 5px; }
+      .sidebar {
+        grid-template-columns: 92px 1fr;
+        gap: 3px 14px;
+      }
+      .avatar-wrap { width: 92px; }
+      .sidebar h1 { font-size: 21px; }
+      .handle { font-size: 15px; }
+      .bio { font-size: 12px; }
+      .availability { font-size: 10px; padding: 4px 8px; }
+      .meta { font-size: 11px; }
+      .services { gap: 7px; }
+      .service { padding: 12px 6px; font-size: 11px; }
+      .back-top { right: 14px; bottom: 14px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        scroll-behavior: auto !important;
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="progress" id="progress"></div>
+
+  <header class="navbar">
+    <div class="container nav">
+      <a class="brand" href="#overview" aria-label="Dhananjay home">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span>dhananjay-77</span>
+      </a>
+
+      <button class="nav-search" id="openPalette" aria-label="Open search">
+        <span>⌕</span>
+        <span>Search portfolio...</span>
+        <kbd>Ctrl K</kbd>
+      </button>
+
+      <nav class="nav-links" id="desktopNav">
+        <a href="#overview">Overview</a>
+        <a href="#repositories">Repositories</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button>
+        <button class="icon-btn hamburger" id="menuToggle" title="Menu" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#overview">Overview</a>
+      <a href="#repositories">Repositories</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </header>
+
+  <div class="container layout">
+    <aside class="sidebar">
+      <div class="avatar-wrap">
+        <img class="avatar" src="177320722.jpg" alt="Dhananjay profile photo"
+             onerror="this.style.objectFit='contain';this.alt='Dhananjay';">
+        <span class="online-ring" title="Available for opportunities"></span>
+      </div>
+
+      <h1>Dhananjay</h1>
+      <div class="handle">dhananjay-77</div>
+      <p class="bio">Junior Web Developer building practical websites, custom software and management systems.</p>
+
+      <div class="availability"><span class="pulse"></span> Available for opportunities</div>
+
+      <div class="meta">
+        <div class="meta-row">⌖ <span>Maharashtra, India</span></div>
+        <div class="meta-row">⌘ <span>Web Developer</span></div>
+        <div class="meta-row">↗ <span>Portfolio &amp; Projects</span></div>
+      </div>
+
+      <div class="socials">
+        <a href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ GitHub</a>
+        <a href="#" id="linkedinSide">in LinkedIn</a>
+        <a href="mailto:dhananjayshirse7777@gmail.com">✉ Email</a>
+      </div>
+    </aside>
+
+    <main id="overview">
+      <section class="hero reveal">
+        <div class="hero-title">Hi, I'm <span>Dhananjay</span>.</div>
+        <div class="hero-handle">@dhananjay-77</div>
+        <div class="hero-role">Freelancer &amp; Junior Web Developer</div>
+        <div class="hero-subtitle">Building practical web applications, websites and customized management systems.</div>
+
+        <div class="hero-copy">
+          Fresher developer with hands-on experience working on real-world websites,
+          backend development and customized software solutions for organizations and businesses.
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">▣ View Projects</a>
+          <a class="btn" href="#contact">✉ Contact Me</a>
+          <a class="btn" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ GitHub Profile</a>
+          <button class="btn btn-ghost" id="copyUsername">⧉ Copy Username</button>
+        </div>
+      </section>
+
+      <section class="quick-stats reveal" aria-label="Portfolio statistics">
+        <div class="quick-stat"><strong>7+</strong><span>Projects</span></div>
+        <div class="quick-stat"><strong>3+</strong><span>Websites</span></div>
+        <div class="quick-stat"><strong>3+</strong><span>Custom Systems</span></div>
+        <div class="quick-stat"><strong>5+</strong><span>Core Technologies</span></div>
+      </section>
+
+      <section class="section card reveal" id="readme">
+        <div class="readme-header">▣ README.md <span class="muted">/</span> about</div>
+        <div class="readme-body">
+          <h2>About Me</h2>
+          <p><strong>Junior Web Developer</strong></p>
+          <p>I build practical websites and customized software solutions for organizations and businesses.</p>
+
+          <h3>What I'm working on</h3>
+          <ul class="about-list">
+            <li>Improving full-stack development skills</li>
+            <li>Web development and custom software</li>
+            <li>Real-world project implementation</li>
+            <li>Practical management systems</li>
+            <li>Responsive and database-driven applications</li>
+            <li>Learning and professional opportunities</li>
+          </ul>
+
+          <div class="badges">
+            <span class="badge">HTML5</span>
+            <span class="badge">CSS3</span>
+            <span class="badge">JavaScript</span>
+            <span class="badge">PHP</span>
+            <span class="badge">MySQL</span>
+            <span class="badge">Git</span>
+            <span class="badge">GitHub</span>
+          </div>
+
+          <div class="code-card">
+            <button class="copy-code" id="copyCode">Copy</button>
+            <span class="comment">// developer profile</span><br>
+            <span class="kw">const</span> <span class="prop">developer</span> = {<br>
+            &nbsp;&nbsp;<span class="prop">name</span>: <span class="str">"Dhananjay"</span>,<br>
+            &nbsp;&nbsp;<span class="prop">username</span>: <span class="str">"dhananjay-77"</span>,<br>
+            &nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Junior Web Developer"</span>,<br>
+            &nbsp;&nbsp;<span class="prop">location</span>: <span class="str">"Maharashtra, India"</span>,<br>
+            &nbsp;&nbsp;<span class="prop">status</span>: <span class="str">"Learning • Building • Improving"</span><br>
+            };
+          </div>
+        </div>
+      </section>
+
+      <section class="section card contrib reveal" aria-label="Portfolio activity">
+        <div class="contrib-top">
+          <strong id="contribCount">Portfolio activity</strong>
+          <span>Activity overview • last year</span>
+        </div>
+        <div class="contrib-scroll">
+          <div class="months" id="months"></div>
+          <div class="graph-row">
+            <div class="day-labels"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+            <div class="weeks" id="weeks"></div>
+          </div>
+        </div>
+        <div class="legend">
+          Less <i></i><i style="background:#0e4429"></i><i style="background:#006d32"></i><i style="background:#26a641"></i><i style="background:#39d353"></i> More
+        </div>
+      </section>
+
+      <section class="section" id="repositories">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">◈</span> Pinned Repositories</h2>
+            <div class="section-subtitle">Selected development work and project areas</div>
+          </div>
+        </div>
+        <div class="repo-grid" id="repoGrid"></div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">▣</span> Featured Projects</h2>
+            <div class="section-subtitle">Filter the portfolio by project type or technology</div>
+          </div>
+        </div>
+
+        <div class="filters" id="filters">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="websites">Websites</button>
+          <button class="filter" data-filter="custom-software">Custom Software</button>
+          <button class="filter" data-filter="frontend">Frontend</button>
+          <button class="filter" data-filter="backend">Backend</button>
+          <button class="filter" data-filter="php">PHP</button>
+          <button class="filter" data-filter="javascript">JavaScript</button>
+          <button class="filter" data-filter="management">Management Systems</button>
+        </div>
+
+        <div class="project-grid" id="projectGrid"></div>
+      </section>
+
+      <section class="section" id="skills">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">▤</span> Skills &amp; Technologies</h2>
+            <div class="section-subtitle">Current working knowledge based on hands-on project work</div>
+          </div>
+        </div>
+        <div class="skills-grid" id="skillsGrid"></div>
+      </section>
+
+      <section class="section" id="experience">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">◉</span> Experience</h2>
+            <div class="section-subtitle">Project-based practical experience</div>
+          </div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">◆</span> Education</h2>
+          </div>
+        </div>
+        <div class="edu-list" id="education"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">+</span> What I Build</h2>
+            <div class="section-subtitle">Practical solutions for organizations, businesses and projects</div>
+          </div>
+        </div>
+        <div class="services" id="services"></div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">$</span> Terminal</h2>
+          </div>
+        </div>
+        <div class="terminal">
+          <div class="terminal-top">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span style="margin-left:5px;">dhananjay@developer:~</span>
+          </div>
+          <div class="terminal-body">
+            <div><span class="prompt">$</span> <span class="command">whoami</span></div>
+            <div class="output">Junior Web Developer</div>
+            <br>
+            <div><span class="prompt">$</span> <span class="command">focus</span></div>
+            <div class="output">Web Development + Custom Software</div>
+            <br>
+            <div><span class="prompt">$</span> <span class="command">stack</span></div>
+            <div class="output">HTML • CSS • JavaScript • PHP • MySQL</div>
+            <br>
+            <div><span class="prompt">$</span> <span class="command">status</span></div>
+            <div class="output">Learning • Building • Improving</div>
+            <br>
+            <div><span class="prompt">$</span> <span class="command">github</span></div>
+            <div class="output">github.com/dhananjay-77</div>
+            <br>
+            <div><span class="prompt">$</span> <span class="cursor"></span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">●</span> Project Activity</h2>
+          </div>
+        </div>
+        <div class="card activity" id="activity"></div>
+      </section>
+
+      <section class="section" id="contact">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">✉</span> Get in Touch</h2>
+            <div class="section-subtitle">Let's discuss a website, custom system or development project.</div>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <div class="card contact-info">
+            <h3>Let's build something together.</h3>
+            <p>
+              Interested in working together or discussing a web project?
+              Feel free to reach out. I'm open to learning and professional opportunities.
+            </p>
+
+            <a class="contact-link" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ github.com/dhananjay-77</a>
+            <a class="contact-link" href="#" id="linkedinContact">in LinkedIn</a>
+            <a class="contact-link" href="mailto:dhananjayshirse7777@gmail.com">✉ dhananjayshirse7777@gmail.com</a>
+
+            <button class="btn" id="copyEmail" style="margin-top:8px;">⧉ Copy Email</button>
+          </div>
+
+          <form class="card contact-form" id="contactForm" novalidate>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input class="input" id="name" type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input class="input" id="email" type="email" placeholder="you@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea class="textarea" id="message" placeholder="Tell me about your project..." required></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit" style="width:100%;">Send Message</button>
+            <div class="form-message" id="formMessage"></div>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>© 2026 Dhananjay • Built with HTML, CSS &amp; JavaScript</div>
+      <div class="footer-links">
+        <a href="https://github.com/dhananjay-77" target="_blank" rel="noopener">GitHub</a>
+        <a href="#" id="linkedinFooter">LinkedIn</a>
+        <a href="mailto:dhananjayshirse7777@gmail.com">Email</a>
+      </div>
+      <div class="mono" style="font-size:10px;color:var(--muted-2);">dhananjay-77</div>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Back to top" title="Back to top">↑</button>
+
+  <!-- Command palette -->
+  <div class="overlay" id="paletteOverlay" aria-hidden="true">
+    <div class="palette" role="dialog" aria-modal="true" aria-label="Portfolio search">
+      <input class="palette-search" id="paletteInput" placeholder="Search projects, skills, sections..." autocomplete="off">
+      <div class="palette-results" id="paletteResults"></div>
+    </div>
+  </div>
+
+  <!-- Project details -->
+  <div class="overlay" id="projectOverlay" aria-hidden="true">
+    <article class="modal" role="dialog" aria-modal="true" aria-label="Project details">
+      <div class="modal-head">
+        <div>
+          <div class="modal-type" id="modalType"></div>
+          <h2 id="modalTitle"></h2>
+          <p id="modalDesc"></p>
+        </div>
+        <button class="icon-btn" id="closeProject" aria-label="Close project">×</button>
+      </div>
+      <div class="modal-block">
+        <strong>Problem addressed</strong>
+        <p id="modalProblem"></p>
+      </div>
+      <div class="modal-block">
+        <strong>Features</strong>
+        <ul class="features" id="modalFeatures"></ul>
+      </div>
+      <div class="modal-block">
+        <strong>Technology</strong>
+        <div class="badges" id="modalTech"></div>
+      </div>
+      <div class="modal-block" style="display:flex;gap:8px;flex-wrap:wrap;">
+        <span class="status" id="modalStatus"></span>
+        <a class="btn btn-primary" id="modalLive" target="_blank" rel="noopener">Open Website</a>
+      </div>
+    </article>
+  </div>
+
+  <script>
+    /* =========================================================
+       CONFIGURATION
+       ========================================================= */
+    const PORTFOLIO = {
+      name: "Dhananjay",
+      username: "dhananjay-77",
+      role: "Junior Web Developer",
+      location: "Maharashtra, India",
+      github: "https://github.com/dhananjay-77",
+      email: "dhananjayshirse7777@gmail.com",
+      linkedin: "#"
+    };
+
+    const PINNED_REPOS = [
+      {
+        name: "abvp-expense-management",
+        desc: "Customized expense management software for ABVP Deogiri State.",
+        lang: "PHP", langColor: "#4F5D95", stars: 3, forks: 1, updated: "2 months ago", url: "#",
+        tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
+      },
+      {
+        name: "abvp-voucher-management",
+        desc: "Customized portal and voucher management software for ABVP Chhatrapati Sambhajinagar Mahanagar.",
+        lang: "PHP", langColor: "#4F5D95", stars: 2, forks: 0, updated: "3 months ago", url: "#",
+        tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
+      },
+      {
+        name: "prerna-voucher-management",
+        desc: "Customized voucher management system for Prerna Foundation.",
+        lang: "PHP", langColor: "#4F5D95", stars: 2, forks: 1, updated: "4 months ago", url: "#",
+        tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
+      },
+      {
+        name: "axinex-backend-development",
+        desc: "Backend development and web application work associated with Axinex Technologies.",
+        lang: "PHP", langColor: "#4F5D95", stars: 1, forks: 0, updated: "5 months ago",
+        url: "https://www.axinextechnologies.com", tags: ["PHP", "MySQL", "Backend"]
+      },
+      {
+        name: "prerna-foundation-website",
+        desc: "Official website development work for Prerna Foundation.",
+        lang: "HTML", langColor: "#e34c26", stars: 2, forks: 0, updated: "6 months ago",
+        url: "https://prernafoundation.org", tags: ["HTML", "CSS", "JavaScript"]
+      },
+      {
+        name: "foundation-web-projects",
+        desc: "Website development projects for organizations and foundations.",
+        lang: "HTML", langColor: "#e34c26", stars: 1, forks: 0, updated: "7 months ago", url: "#",
+        tags: ["HTML", "CSS", "JavaScript"]
+      }
+    ];
+
+    const PROJECTS = [
+      {
+        title: "ABVP Deogiri State Expense Management",
+        desc: "Customized expense management software for organizational expense records, transactions and reporting workflows.",
+        problem: "Manual expense tracking and reporting challenges for an organizational body.",
+        type: "Custom Software", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        filters: ["custom-software", "php", "javascript", "management", "backend"],
+        features: ["Expense records", "Transaction management", "Reporting workflows"], url: "#"
+      },
+      {
+        title: "ABVP Chhatrapati Sambhajinagar Mahanagar Voucher Management",
+        desc: "Customized portal and voucher management solution for voucher records, payment information and administrative workflows.",
+        problem: "Disorganized voucher records and payment information for a city-level organization.",
+        type: "Custom Software", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        filters: ["custom-software", "php", "javascript", "management", "backend"],
+        features: ["Voucher records", "Payment information", "Administrative workflows"], url: "#"
+      },
+      {
+        title: "Axinex Technologies Backend",
+        desc: "Backend development and web application work associated with Axinex Technologies.",
+        problem: "Backend development needs for a technology company.",
+        type: "Backend Development", status: "Work Exposure",
+        tech: ["PHP", "MySQL", "Backend"],
+        filters: ["backend", "php", "custom-software"],
+        features: ["Backend development", "Web application work"],
+        url: "https://www.axinextechnologies.com"
+      },
+      {
+        title: "Prerna Foundation Official Website",
+        desc: "Website development and implementation work for the Prerna Foundation official website.",
+        problem: "Need for an official online presence for a foundation.",
+        type: "Website Development", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript"],
+        filters: ["websites", "frontend", "javascript"],
+        features: ["Official website", "Responsive design", "Organization presence"],
+        url: "https://prernafoundation.org"
+      },
+      {
+        title: "Prerna Foundation Voucher Management",
+        desc: "Customized voucher management system for organizational payment and voucher records.",
+        problem: "Manual voucher handling and payment record management for a foundation.",
+        type: "Custom Software", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        filters: ["custom-software", "php", "javascript", "management", "backend"],
+        features: ["Voucher creation", "Payment details", "Voucher records", "Print functionality", "Amount handling", "Administrative workflow", "Responsive interface"],
+        url: "#"
+      },
+      {
+        title: "Vidyajyot Foundation Website",
+        desc: "Official website development work for Vidyajyot Foundation.",
+        problem: "Need for a professional online presence for an educational foundation.",
+        type: "Website Development", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript"],
+        filters: ["websites", "frontend", "javascript"],
+        features: ["Official website", "Foundation presence"], url: "#"
+      },
+      {
+        title: "Janprabodhani Official Website",
+        desc: "Official website development and implementation work for Janprabodhani.",
+        problem: "Need for an official website for a publication/organization.",
+        type: "Website Development", status: "Completed",
+        tech: ["HTML", "CSS", "JavaScript"],
+        filters: ["websites", "frontend", "javascript"],
+        features: ["Official website", "Implementation"], url: "#"
+      }
+    ];
+
+    const SKILLS = [
+      {
+        category: "Frontend",
+        items: [
+          ["HTML5", "Hands-on", 90],
+          ["CSS3", "Hands-on", 88],
+          ["JavaScript", "Working Knowledge", 72],
+          ["Responsive Web Design", "Hands-on", 86]
+        ]
+      },
+      {
+        category: "Backend",
+        items: [
+          ["PHP", "Hands-on", 80],
+          ["MySQL", "Working Knowledge", 72],
+          ["Backend Development", "Learning", 60]
+        ]
+      },
+      {
+        category: "Tools",
+        items: [
+          ["Git", "Working Knowledge", 65],
+          ["GitHub", "Hands-on", 78],
+          ["VS Code", "Hands-on", 90],
+          ["XAMPP", "Hands-on", 82]
+        ]
+      },
+      {
+        category: "Development",
+        items: [
+          ["CRUD Systems", "Hands-on", 82],
+          ["Admin Panels", "Working Knowledge", 70],
+          ["Voucher Management", "Hands-on", 82],
+          ["Expense Management", "Hands-on", 80]
+        ]
+      },
+      {
+        category: "Web Applications",
+        items: [
+          ["Database-driven Applications", "Working Knowledge", 70],
+          ["Responsive UI", "Hands-on", 84],
+          ["Website Development", "Hands-on", 88]
+        ]
+      }
+    ];
+
+    const EXPERIENCE = [
+      {
+        date: "Project-based",
+        title: "Junior / Fresher Web Developer",
+        org: "Hands-on Project Experience",
+        desc: "Worked on real-world website development, backend development and customized management software projects for organizations and institutions.",
+        tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
+      },
+      {
+        date: "Project Work",
+        title: "ABVP Deogiri State",
+        org: "Expense Management Software",
+        desc: "Developed a customized expense management system to manage organizational expense records, transactions and reporting workflows.",
+        tags: ["PHP", "MySQL", "JavaScript"]
+      },
+      {
+        date: "Project Work",
+        title: "ABVP Chhatrapati Sambhajinagar Mahanagar",
+        org: "Portal & Voucher Management",
+        desc: "Built a customized portal and voucher management solution for organizing voucher records and administrative workflows.",
+        tags: ["PHP", "MySQL", "JavaScript"]
+      },
+      {
+        date: "Project Work",
+        title: "Prerna Foundation",
+        org: "Website & Voucher Management",
+        desc: "Developed the official website and a customized voucher management system for managing payment and voucher records.",
+        tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
+      },
+      {
+        date: "Work Exposure",
+        title: "Axinex Technologies",
+        org: "Backend Development",
+        desc: "Backend development and web application work associated with Axinex Technologies.",
+        tags: ["PHP", "MySQL", "Backend"]
+      },
+      {
+        date: "Project Work",
+        title: "Vidyajyot Foundation & Janprabodhani",
+        org: "Website Development",
+        desc: "Official website development and implementation work for both organizations.",
+        tags: ["HTML", "CSS", "JavaScript"]
+      }
+    ];
+
+    const EDUCATION = [
+      { degree: "Bachelor of Computer Science", institution: "Completed" },
+      { degree: "Master of Computer Application", institution: "Current" }
+    ];
+
+    const SERVICES = [
+      ["🌐", "Business Websites"],
+      ["🏢", "Organization Websites"],
+      ["⚙", "Custom Management Software"],
+      ["🧾", "Voucher Management Systems"],
+      ["📊", "Expense Management Systems"],
+      ["▣", "Admin Dashboards"],
+      ["🗄", "Database-driven Applications"],
+      ["📱", "Responsive Websites"]
+    ];
+
+    const ACTIVITY = [
+      ["Completed a custom voucher management system", "recent"],
+      ["Worked on organization website", "recent"],
+      ["Improved backend functionality", "recent"],
+      ["Built expense management workflow", "recent"],
+      ["Worked on responsive UI", "recent"]
+    ];
+
+    /* =========================================================
+       HELPERS
+       ========================================================= */
+    const $ = (selector, root = document) => root.querySelector(selector);
+    const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+
+    function escapeHTML(value) {
+      return String(value).replace(/[&<>"']/g, char => ({
+        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+      }[char]));
+    }
+
+    function copyText(text, button, successText = "Copied!") {
+      navigator.clipboard?.writeText(text).then(() => {
+        if (!button) return;
+        const old = button.textContent;
+        button.textContent = successText;
+        setTimeout(() => button.textContent = old, 1300);
+      }).catch(() => {});
+    }
+
+    /* =========================================================
+       RENDER
+       ========================================================= */
+    function renderRepos() {
+      $("#repoGrid").innerHTML = PINNED_REPOS.map(repo => `
+        <article class="repo card reveal">
+          <div class="repo-head">
+            <span>▣</span>
+            <a class="repo-name" href="${repo.url}" ${repo.url !== "#" ? 'target="_blank" rel="noopener"' : ''}>${escapeHTML(repo.name)}</a>
+            <span class="repo-badge">Public</span>
+          </div>
+          <p class="repo-desc">${escapeHTML(repo.desc)}</p>
+          <div class="repo-tags">
+            <span class="tech"><span class="lang-dot" style="background:${repo.langColor}"></span>${repo.lang}</span>
+            ${repo.tags.slice(0,3).map(tag => `<span class="tech">${escapeHTML(tag)}</span>`).join("")}
+          </div>
+          <div class="repo-meta">
+            <span>★ ${repo.stars}</span>
+            <span>⑂ ${repo.forks}</span>
+            <span>${escapeHTML(repo.updated)}</span>
+          </div>
+          <div class="repo-action">
+            ${repo.url !== "#"
+              ? `<a class="btn" href="${repo.url}" target="_blank" rel="noopener">View Project ↗</a>`
+              : `<span class="btn" style="opacity:.55;cursor:default;">Private / Client Project</span>`}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderProjects(filter = "all") {
+      const list = filter === "all" ? PROJECTS : PROJECTS.filter(project => project.filters.includes(filter));
+      $("#projectGrid").innerHTML = list.length ? list.map((project, index) => {
+        const realIndex = PROJECTS.indexOf(project);
+        return `
+          <article class="project card reveal" data-project="${realIndex}">
+            <div class="project-type">${escapeHTML(project.type)}</div>
+            <h3>${escapeHTML(project.title)}</h3>
+            <p>${escapeHTML(project.desc)}</p>
+            <div class="problem">Problem solved: ${escapeHTML(project.problem)}</div>
+            <ul class="features">${project.features.slice(0,4).map(f => `<li>${escapeHTML(f)}</li>`).join("")}</ul>
+            <div class="tech-row">${project.tech.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("")}</div>
+            <div class="project-bottom">
+              <span class="status">${escapeHTML(project.status)}</span>
+              <button class="btn" data-details="${realIndex}" style="margin-left:auto;">Details ↗</button>
+              ${project.url !== "#" ? `<a class="btn" href="${project.url}" target="_blank" rel="noopener">Live ↗</a>` : ""}
+            </div>
+          </article>
+        `;
+      }).join("") : `<div class="card" style="grid-column:1/-1;padding:35px;text-align:center;color:var(--muted);">No projects match this filter.</div>`;
+
+      observeReveals();
+    }
+
+    function renderSkills() {
+      $("#skillsGrid").innerHTML = SKILLS.map(category => `
+        <article class="skill-card card reveal">
+          <h3>${escapeHTML(category.category)}</h3>
+          ${category.items.map(([name, level, width]) => `
+            <div class="skill">
+              <div class="skill-line">
+                <span>${escapeHTML(name)}</span>
+                <span class="level">${escapeHTML(level)}</span>
+              </div>
+              <div class="bar"><i style="--width:${width}%"></i></div>
+            </div>
+          `).join("")}
+        </article>
+      `).join("");
+    }
+
+    function renderExperience() {
+      $("#timeline").innerHTML = EXPERIENCE.map(item => `
+        <article class="timeline-item reveal">
+          <div class="timeline-date">${escapeHTML(item.date)}</div>
+          <div class="timeline-title">${escapeHTML(item.title)}</div>
+          <div class="timeline-org">${escapeHTML(item.org)}</div>
+          <div class="timeline-desc">${escapeHTML(item.desc)}</div>
+          <div class="badges">${item.tags.map(tag => `<span class="badge">${escapeHTML(tag)}</span>`).join("")}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderEducation() {
+      $("#education").innerHTML = EDUCATION.map(item => `
+        <article class="edu card reveal">
+          <div class="edu-icon">◆</div>
+          <div>
+            <h3>${escapeHTML(item.degree)}</h3>
+            <p>${escapeHTML(item.institution)}</p>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderServices() {
+      $("#services").innerHTML = SERVICES.map(([icon, name]) => `
+        <article class="service card reveal">
+          <span class="service-icon">${icon}</span>${escapeHTML(name)}
+        </article>
+      `).join("");
+    }
+
+    function renderActivity() {
+      $("#activity").innerHTML = ACTIVITY.map(([text, time]) => `
+        <div class="activity-item">
+          <span class="activity-dot"></span>
+          <span>${escapeHTML(text)}</span>
+          <span class="activity-time">${escapeHTML(time)}</span>
+        </div>
+      `).join("");
+    }
+
+    /* Stable, generated portfolio activity — intentionally not presented as live GitHub data. */
+    function renderContributions() {
+      const weeks = 52;
+      const seed = 7731;
+      let state = seed;
+      let total = 0;
+      const rand = () => {
+        state = (state * 1664525 + 1013904223) >>> 0;
+        return state / 4294967296;
+      };
+
+      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      $("#months").innerHTML = months.map(m => `<span>${m}</span>`).join("");
+
+      let html = "";
+      for (let w = 0; w < weeks; w++) {
+        html += `<div class="week">`;
+        for (let d = 0; d < 7; d++) {
+          const level = rand() < .25 ? 0 : Math.min(4, 1 + Math.floor(rand() * 4));
+          const count = level === 0 ? 0 : level * 2 + Math.floor(rand() * 4);
+          total += count;
+          const date = new Date();
+          date.setDate(date.getDate() - ((weeks - 1 - w) * 7 + (6 - d)));
+          const label = date.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
+          html += `<span class="day" data-level="${level}" title="${count} activities on ${label}" aria-label="${count} activities on ${label}"></span>`;
+        }
+        html += `</div>`;
+      }
+      $("#weeks").innerHTML = html;
+      $("#contribCount").textContent = `${total.toLocaleString()} portfolio activities in the last year`;
+    }
+
+    /* =========================================================
+       PROJECT MODAL
+       ========================================================= */
+    function openProject(index) {
+      const p = PROJECTS[index];
+      if (!p) return;
+
+      $("#modalType").textContent = `${p.type} • ${p.status}`;
+      $("#modalTitle").textContent = p.title;
+      $("#modalDesc").textContent = p.desc;
+      $("#modalProblem").textContent = p.problem;
+      $("#modalFeatures").innerHTML = p.features.map(f => `<li>${escapeHTML(f)}</li>`).join("");
+      $("#modalTech").innerHTML = p.tech.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("");
+      $("#modalStatus").textContent = p.status;
+
+      const live = $("#modalLive");
+      if (p.url !== "#") {
+        live.href = p.url;
+        live.style.display = "inline-flex";
+      } else {
+        live.style.display = "none";
+      }
+
+      $("#projectOverlay").classList.add("open");
+      $("#projectOverlay").setAttribute("aria-hidden", "false");
+      document.body.classList.add("locked");
+    }
+
+    function closeProject() {
+      $("#projectOverlay").classList.remove("open");
+      $("#projectOverlay").setAttribute("aria-hidden", "true");
+      document.body.classList.remove("locked");
+    }
+
+    /* =========================================================
+       COMMAND PALETTE
+       ========================================================= */
+    const PALETTE_ITEMS = [
+      ["Overview", "#overview"],
+      ["Repositories", "#repositories"],
+      ["Projects", "#projects"],
+      ["Skills", "#skills"],
+      ["Experience", "#experience"],
+      ["Education", "#education"],
+      ["Services", "#services"],
+      ["Contact", "#contact"],
+      ["GitHub Profile", PORTFOLIO.github]
+    ];
+
+    function renderPalette(query = "") {
+      const q = query.trim().toLowerCase();
+      const items = PALETTE_ITEMS.filter(([name]) => name.toLowerCase().includes(q));
+
+      $("#paletteResults").innerHTML = items.length ? items.map(([name, target], i) => `
+        <button class="palette-item ${i === 0 ? "selected" : ""}" data-target="${target}">
+          <span>${target.startsWith("#") ? "↳" : "◉"}</span>
+          <span>${escapeHTML(name)}</span>
+          <small>${target.startsWith("#") ? "Go to section" : "Open"}</small>
+        </button>
+      `).join("") : `<div style="padding:22px;color:var(--muted);text-align:center;">No results found.</div>`;
+    }
+
+    function openPalette() {
+      $("#paletteOverlay").classList.add("open");
+      $("#paletteOverlay").setAttribute("aria-hidden", "false");
+      document.body.classList.add("locked");
+      renderPalette();
+      $("#paletteInput").value = "";
+      setTimeout(() => $("#paletteInput").focus(), 20);
+    }
+
+    function closePalette() {
+      $("#paletteOverlay").classList.remove("open");
+      $("#paletteOverlay").setAttribute("aria-hidden", "true");
+      document.body.classList.remove("locked");
+    }
+
+    /* =========================================================
+       THEME
+       ========================================================= */
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem("dhananjay-theme", theme);
+      $("#themeToggle").textContent = theme === "dark" ? "☼" : "☾";
+      $("#themeToggle").title = theme === "dark" ? "Switch to light theme" : "Switch to dark theme";
+    }
+
+    /* =========================================================
+       SCROLL / NAV
+       ========================================================= */
+    function updateScrollUI() {
+      const scrollTop = window.scrollY;
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      $("#progress").style.width = `${height > 0 ? (scrollTop / height) * 100 : 0}%`;
+      $("#backTop").classList.toggle("show", scrollTop > 600);
+
+      const sections = ["overview","repositories","projects","skills","experience","contact"];
+      let current = "overview";
+      sections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && scrollTop >= el.offsetTop - 130) current = id;
+      });
+
+      $$("#desktopNav a").forEach(a => {
+        a.classList.toggle("active", a.getAttribute("href") === `#${current}`);
+      });
+    }
+
+    /* =========================================================
+       REVEAL
+       ========================================================= */
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {threshold:.08, rootMargin:"0px 0px -25px 0px"});
+
+    function observeReveals() {
+      $$(".reveal").forEach(el => {
+        if (!el.classList.contains("visible")) revealObserver.observe(el);
+      });
+    }
+
+    /* =========================================================
+       EVENTS
+       ========================================================= */
+
+    $("#filters").addEventListener("click", e => {
+      const button = e.target.closest(".filter");
+      if (!button) return;
+      $$(".filter").forEach(b => b.classList.remove("active"));
+      button.classList.add("active");
+      renderProjects(button.dataset.filter);
+    });
+
+    $("#projectGrid").addEventListener("click", e => {
+      const button = e.target.closest("[data-details]");
+      if (button) openProject(Number(button.dataset.details));
+    });
+
+    $("#closeProject").addEventListener("click", closeProject);
+
+    $("#projectOverlay").addEventListener("click", e => {
+      if (e.target === $("#projectOverlay")) closeProject();
+    });
+
+    $("#openPalette").addEventListener("click", openPalette);
+
+    $("#paletteOverlay").addEventListener("click", e => {
+      if (e.target === $("#paletteOverlay")) closePalette();
+    });
+
+    $("#paletteInput").addEventListener("input", e => renderPalette(e.target.value));
+
+    $("#paletteResults").addEventListener("click", e => {
+      const item = e.target.closest("[data-target]");
+      if (!item) return;
+      const target = item.dataset.target;
+      closePalette();
+
+      if (target.startsWith("#")) {
+        document.querySelector(target)?.scrollIntoView({behavior:"smooth", block:"start"});
+      } else {
+        window.open(target, "_blank", "noopener");
+      }
+    });
+
+    $("#themeToggle").addEventListener("click", () => {
+      const current = document.documentElement.dataset.theme || "dark";
+      applyTheme(current === "dark" ? "light" : "dark");
+    });
+
+    $("#menuToggle").addEventListener("click", () => {
+      $("#mobileMenu").classList.toggle("open");
+    });
+
+    $$("#mobileMenu a").forEach(a => a.addEventListener("click", () => {
+      $("#mobileMenu").classList.remove("open");
+    }));
+
+    $$("#desktopNav a, #mobileMenu a").forEach(a => {
+      a.addEventListener("click", e => {
+        const target = document.querySelector(a.getAttribute("href"));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({behavior:"smooth", block:"start"});
+        }
+      });
+    });
+
+    $("#backTop").addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+
+    $("#copyUsername").addEventListener("click", e => copyText(PORTFOLIO.username, e.currentTarget, "Copied!"));
+
+    $("#copyEmail").addEventListener("click", e => copyText(PORTFOLIO.email, e.currentTarget, "Copied!"));
+
+    $("#copyCode").addEventListener("click", e => {
+      const code = `const developer = {
+  name: "Dhananjay",
+  username: "dhananjay-77",
+  role: "Junior Web Developer",
+  location: "Maharashtra, India",
+  status: "Learning • Building • Improving"
+};`;
+      copyText(code, e.currentTarget, "Copied!");
+    });
+
+    $("#contactForm").addEventListener("submit", e => {
+      e.preventDefault();
+
+      const name = $("#name").value.trim();
+      const email = $("#email").value.trim();
+      const message = $("#message").value.trim();
+      const output = $("#formMessage");
+
+      if (!name || !email || !message) {
+        output.textContent = "✕ Please fill in all fields.";
+        output.className = "form-message error";
+        return;
+      }
+
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        output.textContent = "✕ Please enter a valid email address.";
+        output.className = "form-message error";
+        return;
+      }
+
+      const subject = encodeURIComponent(`Portfolio enquiry from ${name}`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${message}`);
+      window.location.href = `mailto:${PORTFOLIO.email}?subject=${subject}&body=${body}`;
+
+      output.textContent = "✓ Opening your email app...";
+      output.className = "form-message success";
+    });
+
+    /* Keyboard shortcuts */
+    document.addEventListener("keydown", e => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        openPalette();
+      }
+      if (e.key === "Escape") {
+        closePalette();
+        closeProject();
+        $("#mobileMenu").classList.remove("open");
+      }
+    });
+
+    window.addEventListener("scroll", updateScrollUI, {passive:true});
+
+    /* =========================================================
+       INIT
+       ========================================================= */
+    const savedTheme = localStorage.getItem("dhananjay-theme");
+    applyTheme(savedTheme === "light" ? "light" : "dark");
+
+    if (PORTFOLIO.linkedin !== "#") {
+      ["linkedinSide","linkedinContact","linkedinFooter"].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.href = PORTFOLIO.linkedin;
+          el.target = "_blank";
+          el.rel = "noopener";
+        }
+      });
+    }
+
+    renderRepos();
+    renderProjects();
+    renderSkills();
+    renderExperience();
+    renderEducation();
+    renderServices();
+    renderActivity();
+    renderContributions();
+    observeReveals();
+    updateScrollUI();
+  </script>
+</body>
+</html>
