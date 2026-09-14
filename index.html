@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dhananjay — Junior Web Developer portfolio">
+  <meta name="description" content="Dhananjay —  Web Developer portfolio">
   <meta name="theme-color" content="#0d1117">
-  <title>Dhananjay — Junior Web Developer</title>
+  <title>Dhananjay — Web Developer</title>
 
   <style>
     /* =========================================================
@@ -1575,6 +1575,49 @@
       font-size: 12px;
     }
 
+    /* ---------- TESTIMONIALS ---------- */
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .testimonial {
+      padding: 18px;
+      position: relative;
+    }
+
+    .testimonial-stars {
+      color: var(--yellow);
+      letter-spacing: 2px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    .testimonial-quote {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-author {
+      padding-top: 11px;
+      border-top: 1px solid var(--border);
+    }
+
+    .testimonial-author strong {
+      display: block;
+      font-size: 13px;
+      color: var(--text);
+    }
+
+    .testimonial-author span {
+      color: var(--muted-2);
+      font-size: 10px;
+    }
+
     /* ---------- RESPONSIVE ---------- */
 
     @media (max-width: 1080px) {
@@ -1659,7 +1702,8 @@
 
       .repo-grid,
       .project-grid,
-      .contact-grid {
+      .contact-grid,
+      .testimonials {
         grid-template-columns: 1fr;
       }
     }
@@ -1786,6 +1830,7 @@
         <a href="private-projects.html">Private Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
+        <a href="#feedback">Feedback</a>
         <a href="#contact">Contact</a>
       </nav>
 
@@ -1816,13 +1861,13 @@
 
       <h1>Dhananjay</h1>
       <div class="handle">dhananjay-77</div>
-      <p class="bio">Junior Web Developer building practical websites, custom software and management systems.</p>
+      <p class="bio"> Web Developer building practical websites, custom software and management systems.</p>
 
       <div class="availability"><span class="pulse"></span> Available for opportunities</div>
 
       <div class="meta">
-        <div class="meta-row">⌖ <span>Maharashtra, India</span></div>
-        <div class="meta-row">⌘ <span>Web Developer</span></div>
+        <div class="meta-row">⌖ <span>Chhatrapati Sambhajinagar, Maharashtra, India</span></div>
+        <div class="meta-row">⌘ <span>Developer</span></div>
         <div class="meta-row">↗ <span>Portfolio &amp; Projects</span></div>
       </div>
 
@@ -1838,7 +1883,7 @@
       <section class="hero reveal">
         <div class="hero-title">Hi, I'm <span>Dhananjay</span>.</div>
         <div class="hero-handle">@dhananjay-77</div>
-        <div class="hero-role">Freelancer &amp; Junior Web Developer</div>
+        <div class="hero-role">Freelancer &amp; Web Developer</div>
         <div class="hero-subtitle">Building practical web applications, websites and customized management systems.
         </div>
 
@@ -1867,7 +1912,7 @@
         <div class="readme-header">▣ README.md <span class="muted">/</span> about</div>
         <div class="readme-body">
           <h2>About Me</h2>
-          <p><strong>Junior Web Developer</strong></p>
+          <p><strong> Web Developer</strong></p>
           <p>I build practical websites and customized software solutions for organizations and businesses.</p>
 
           <h3>What I'm working on</h3>
@@ -1888,6 +1933,12 @@
             <span class="badge">MySQL</span>
             <span class="badge">Git</span>
             <span class="badge">GitHub</span>
+            <span class="badge">Excel</span>
+            <span class="badge">API Intergration</span>
+            <span class="badge">Python</span>
+            <span class="badge">Next.js</span>
+            <span class="badge">Node.js</span>
+
           </div>
 
           <div class="code-card">
@@ -1896,7 +1947,7 @@
             <span class="kw">const</span> <span class="prop">developer</span> = {<br>
             &nbsp;&nbsp;<span class="prop">name</span>: <span class="str">"Dhananjay"</span>,<br>
             &nbsp;&nbsp;<span class="prop">username</span>: <span class="str">"dhananjay-77"</span>,<br>
-            &nbsp;&nbsp;<span class="prop">role</span>: <span class="str">"Junior Web Developer"</span>,<br>
+            &nbsp;&nbsp;<span class="prop">role</span>: <span class="str">" Web Developer"</span>,<br>
             &nbsp;&nbsp;<span class="prop">location</span>: <span class="str">"Maharashtra, India"</span>,<br>
             &nbsp;&nbsp;<span class="prop">status</span>: <span class="str">"Learning • Building • Improving"</span><br>
             };
@@ -1913,7 +1964,8 @@
           <div class="months" id="months"></div>
           <div class="graph-row">
             <div class="day-labels">
-              <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+              <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span>
+            </div>
             <div class="weeks" id="weeks"></div>
           </div>
         </div>
@@ -2009,7 +2061,7 @@
           </div>
           <div class="terminal-body">
             <div><span class="prompt">$</span> <span class="command">whoami</span></div>
-            <div class="output">Junior Web Developer</div>
+            <div class="output">Web Developer</div>
             <br>
             <div><span class="prompt">$</span> <span class="command">focus</span></div>
             <div class="output">Web Development + Custom Software</div>
@@ -2035,6 +2087,45 @@
           </div>
         </div>
         <div class="card activity" id="activity"></div>
+      </section>
+
+      <section class="section" id="feedback">
+        <div class="section-head">
+          <div>
+            <h2 class="section-title"><span class="mark">◈</span> What they’re talking about us</h2>
+            <div class="section-subtitle">Feedback from organizations and professionals I have worked with</div>
+          </div>
+          <!-- <a class="btn btn-ghost" href="https://gaviaspreview.com/wp/paroti/testimonials/" target="_blank" rel="noopener">View all feedbacks</a> -->
+        </div>
+        <div class="testimonials">
+          <article class="testimonial card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“Professional, practical and responsive development work with a clear
+              understanding of organizational requirements.”</p>
+            <div class="testimonial-author">
+              <strong>Hrushikesh Deshpande (Nandedkar)</strong>
+              <span>CEO, Prerna Foundation</span>
+            </div>
+          </article>
+          <article class="testimonial card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“The software work was focused on making organizational processes more
+              structured, efficient and easy to manage.”</p>
+            <div class="testimonial-author">
+              <strong>Ajay Sapkal</strong>
+              <span>State Office Secretary, ABVP</span>
+            </div>
+          </article>
+          <article class="testimonial card reveal">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-quote">“A useful and practical approach to digital management systems, with attention
+              to workflow and day-to-day requirements.”</p>
+            <div class="testimonial-author">
+              <strong>Aditya Kulkarni</strong>
+              <span>Office Secretary, ABVP Chhatrapati Sambhajinagar</span>
+            </div>
+          </article>
+        </div>
       </section>
 
       <section class="section" id="contact">
@@ -2084,8 +2175,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <div>© 2026 Dhananjay • Built with HTML, CSS &amp; JavaScript</div>
-      <div class="footer-links">
+         <div class="footer-links">
         <a href="https://github.com/dhananjay-77" target="_blank" rel="noopener">GitHub</a>
         <a href="#" id="linkedinFooter">LinkedIn</a>
         <a href="mailto:dhananjayshirse7777@gmail.com">Email</a>
@@ -2142,7 +2232,7 @@
     const PORTFOLIO = {
       name: "Dhananjay",
       username: "dhananjay-77",
-      role: "Junior Web Developer",
+      role: "Web Developer",
       location: "Maharashtra, India",
       github: "https://github.com/dhananjay-77",
       email: "dhananjayshirse7777@gmail.com",
@@ -2191,12 +2281,12 @@
     const PROJECTS = [
       {
         title: "ABVP Deogiri State Expense Management",
-        desc: "Customized expense management software for organizational expense records, transactions and reporting workflows.",
+        desc: "Python-based organizational expense-management software with Excel upload, automatic voucher generation, and Excel/database storage as per client requirements.",
         problem: "Manual expense tracking and reporting challenges for an organizational body.",
         type: "Custom Software", status: "Completed",
-        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
-        filters: ["custom-software", "php", "javascript", "management", "backend"],
-        features: ["Expense records", "Transaction management", "Reporting workflows"], url: "#"
+        tech: ["Python", "Excel", "Database"],
+        filters: ["custom-software", "python", "excel", "management", "backend"],
+        features: ["Excel expense-data upload", "Automatic voucher generation", "Voucher data stored in Excel", "Database record storage", "Client-specific Excel/database structure", "Expense records", "Transaction management", "Reporting workflows"], url: "#"
       },
       {
         title: "ABVP Chhatrapati Sambhajinagar Mahanagar Voucher Management",
@@ -2229,12 +2319,12 @@
       },
       {
         title: "Prerna Foundation Voucher Management",
-        desc: "Customized voucher management system for organizational payment and voucher records.",
+        desc: "Python-based voucher management system with Excel upload, automatic voucher generation, and Excel/database storage as per client requirements.",
         problem: "Manual voucher handling and payment record management for a foundation.",
         type: "Custom Software", status: "Completed",
-        tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
+        tech: ["Python", "Excel", "Database"],
         filters: ["custom-software", "php", "javascript", "management", "backend"],
-        features: ["Voucher creation", "Payment details", "Voucher records", "Print functionality", "Amount handling", "Administrative workflow", "Responsive interface"],
+        features: ["Excel expense-data upload", "Automatic voucher generation", "Voucher data stored in Excel", "Database record storage", "Client-specific Excel/database structure", "Voucher creation", "Payment details", "Voucher records", "Print functionality", "Amount handling", "Administrative workflow", "Responsive interface"],
         url: "#"
       },
       {
@@ -2306,7 +2396,7 @@
     const EXPERIENCE = [
       {
         date: "Project-based",
-        title: "Junior / Fresher Web Developer",
+        title: " / Fresher Web Developer",
         org: "Hands-on Project Experience",
         desc: "Worked on real-world website development, backend development and customized management software projects for organizations and institutions.",
         tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
@@ -2742,8 +2832,8 @@
       const code = `const developer = {
   name: "Dhananjay",
   username: "dhananjay-77",
-  role: "Junior Web Developer",
-  location: "Maharashtra, India",
+  role: " Web Developer", 
+  location: "Chhatrapati Sambhajinagar, Maharashtra, India",
   status: "Learning • Building • Improving"
 };`;
       copyText(code, e.currentTarget, "Copied!");
