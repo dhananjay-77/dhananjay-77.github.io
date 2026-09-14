@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,14 +30,14 @@
       --purple: #bc8cff;
       --yellow: #d29922;
       --red: #f85149;
-      --shadow: 0 12px 35px rgba(0,0,0,.22);
+      --shadow: 0 12px 35px rgba(0, 0, 0, .22);
       --radius: 10px;
       --radius-sm: 6px;
       --max: 1280px;
       --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
-              Helvetica, Arial, sans-serif;
+        Helvetica, Arial, sans-serif;
       --mono: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
-              "Liberation Mono", monospace;
+        "Liberation Mono", monospace;
     }
 
     [data-theme="light"] {
@@ -55,10 +56,14 @@
       --purple: #8250df;
       --yellow: #9a6700;
       --red: #cf222e;
-      --shadow: 0 12px 35px rgba(31,35,40,.10);
+      --shadow: 0 12px 35px rgba(31, 35, 40, .10);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -75,18 +80,46 @@
       overflow-x: hidden;
     }
 
-    body.locked { overflow: hidden; }
+    body.locked {
+      overflow: hidden;
+    }
 
-    a { color: var(--blue); text-decoration: none; }
-    button, input, textarea { font: inherit; }
-    button { color: inherit; }
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
 
-    ::selection { background: rgba(88,166,255,.25); }
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
 
-    ::-webkit-scrollbar { width: 9px; height: 9px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 99px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+    button {
+      color: inherit;
+    }
+
+    ::selection {
+      background: rgba(88, 166, 255, .25);
+    }
+
+    ::-webkit-scrollbar {
+      width: 9px;
+      height: 9px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--border);
+      border-radius: 99px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--border-hover);
+    }
 
     .progress {
       position: fixed;
@@ -104,8 +137,14 @@
       margin: 0 auto;
     }
 
-    .muted { color: var(--muted); }
-    .mono { font-family: var(--mono); }
+    .muted {
+      color: var(--muted);
+    }
+
+    .mono {
+      font-family: var(--mono);
+    }
+
     .sr-only {
       position: absolute;
       width: 1px;
@@ -113,7 +152,7 @@
       padding: 0;
       margin: -1px;
       overflow: hidden;
-      clip: rect(0,0,0,0);
+      clip: rect(0, 0, 0, 0);
       white-space: nowrap;
       border: 0;
     }
@@ -155,7 +194,9 @@
       color: #fff;
     }
 
-    .btn-ghost { background: transparent; }
+    .btn-ghost {
+      background: transparent;
+    }
 
     .icon-btn {
       width: 36px;
@@ -195,7 +236,9 @@
       letter-spacing: -.2px;
     }
 
-    .section-title .mark { color: var(--green-bright); }
+    .section-title .mark {
+      color: var(--green-bright);
+    }
 
     .section-subtitle {
       margin-top: 3px;
@@ -311,7 +354,10 @@
       gap: 7px;
     }
 
-    .hamburger { display: none; border-radius: var(--radius-sm); }
+    .hamburger {
+      display: none;
+      border-radius: var(--radius-sm);
+    }
 
     .mobile-menu {
       display: none;
@@ -319,7 +365,9 @@
       border-top: 1px solid var(--border);
     }
 
-    .mobile-menu.open { display: block; }
+    .mobile-menu.open {
+      display: block;
+    }
 
     .mobile-menu a {
       display: block;
@@ -404,9 +452,9 @@
       gap: 7px;
       padding: 5px 11px;
       margin-bottom: 18px;
-      border: 1px solid rgba(63,185,80,.45);
+      border: 1px solid rgba(63, 185, 80, .45);
       border-radius: 999px;
-      background: rgba(35,134,54,.12);
+      background: rgba(35, 134, 54, .12);
       color: var(--green-bright);
       font-size: 12px;
       font-weight: 700;
@@ -417,7 +465,7 @@
       height: 7px;
       border-radius: 50%;
       background: var(--green-bright);
-      box-shadow: 0 0 0 4px rgba(63,185,80,.12);
+      box-shadow: 0 0 0 4px rgba(63, 185, 80, .12);
     }
 
     .meta {
@@ -449,7 +497,9 @@
       padding: 5px 0;
     }
 
-    .socials a:hover { color: var(--blue); }
+    .socials a:hover {
+      color: var(--blue);
+    }
 
     /* ---------- MAIN HEADER ---------- */
 
@@ -464,7 +514,9 @@
       margin-bottom: 8px;
     }
 
-    .hero-title span { color: var(--green-bright); }
+    .hero-title span {
+      color: var(--green-bright);
+    }
 
     .hero-handle {
       color: var(--muted);
@@ -533,7 +585,10 @@
       margin-bottom: 3px;
     }
 
-    .quick-stat span { color: var(--muted); font-size: 12px; }
+    .quick-stat span {
+      color: var(--muted);
+      font-size: 12px;
+    }
 
     /* ---------- README ---------- */
 
@@ -548,7 +603,9 @@
       font-size: 12px;
     }
 
-    .readme-body { padding: 24px; }
+    .readme-body {
+      padding: 24px;
+    }
 
     .readme-body h2 {
       font-size: 25px;
@@ -624,10 +681,21 @@
       font-size: 11px;
     }
 
-    .kw { color: #ff7b72; }
-    .prop { color: #79c0ff; }
-    .str { color: #a5d6ff; }
-    .comment { color: var(--muted-2); }
+    .kw {
+      color: #ff7b72;
+    }
+
+    .prop {
+      color: #79c0ff;
+    }
+
+    .str {
+      color: #a5d6ff;
+    }
+
+    .comment {
+      color: var(--muted-2);
+    }
 
     /* ---------- CONTRIBUTIONS ---------- */
 
@@ -646,7 +714,9 @@
       font-size: 12px;
     }
 
-    .contrib-scroll { min-width: 720px; }
+    .contrib-scroll {
+      min-width: 720px;
+    }
 
     .months {
       height: 19px;
@@ -702,15 +772,37 @@
       z-index: 2;
     }
 
-    .day[data-level="1"] { background: #0e4429; }
-    .day[data-level="2"] { background: #006d32; }
-    .day[data-level="3"] { background: #26a641; }
-    .day[data-level="4"] { background: #39d353; }
+    .day[data-level="1"] {
+      background: #0e4429;
+    }
 
-    [data-theme="light"] .day[data-level="1"] { background: #aceebb; }
-    [data-theme="light"] .day[data-level="2"] { background: #6fdd8b; }
-    [data-theme="light"] .day[data-level="3"] { background: #40c463; }
-    [data-theme="light"] .day[data-level="4"] { background: #1a7f37; }
+    .day[data-level="2"] {
+      background: #006d32;
+    }
+
+    .day[data-level="3"] {
+      background: #26a641;
+    }
+
+    .day[data-level="4"] {
+      background: #39d353;
+    }
+
+    [data-theme="light"] .day[data-level="1"] {
+      background: #aceebb;
+    }
+
+    [data-theme="light"] .day[data-level="2"] {
+      background: #6fdd8b;
+    }
+
+    [data-theme="light"] .day[data-level="3"] {
+      background: #40c463;
+    }
+
+    [data-theme="light"] .day[data-level="4"] {
+      background: #1a7f37;
+    }
 
     .legend {
       display: flex;
@@ -845,7 +937,9 @@
     }
 
     [data-theme="light"] .filter:hover,
-    [data-theme="light"] .filter.active { color: #fff; }
+    [data-theme="light"] .filter.active {
+      color: #fff;
+    }
 
     .project-grid {
       display: grid;
@@ -906,7 +1000,9 @@
       font-size: 11px;
     }
 
-    .features li { margin: 2px 0; }
+    .features li {
+      margin: 2px 0;
+    }
 
     .project-bottom {
       margin-top: auto;
@@ -941,7 +1037,9 @@
       gap: 12px;
     }
 
-    .skill-card { padding: 16px; }
+    .skill-card {
+      padding: 16px;
+    }
 
     .skill-card h3 {
       margin-bottom: 11px;
@@ -954,7 +1052,9 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .skill:last-child { border-bottom: 0; }
+    .skill:last-child {
+      border-bottom: 0;
+    }
 
     .skill-line {
       display: flex;
@@ -1071,8 +1171,15 @@
       color: var(--green-bright);
     }
 
-    .edu h3 { font-size: 13px; margin-bottom: 2px; }
-    .edu p { color: var(--muted); font-size: 12px; }
+    .edu h3 {
+      font-size: 13px;
+      margin-bottom: 2px;
+    }
+
+    .edu p {
+      color: var(--muted);
+      font-size: 12px;
+    }
 
     .services {
       display: grid;
@@ -1127,9 +1234,17 @@
       border-radius: 50%;
     }
 
-    .red { background: #f85149; }
-    .yellow { background: #d29922; }
-    .green { background: #3fb950; }
+    .red {
+      background: #f85149;
+    }
+
+    .yellow {
+      background: #d29922;
+    }
+
+    .green {
+      background: #3fb950;
+    }
 
     .terminal-body {
       padding: 17px;
@@ -1138,9 +1253,17 @@
       line-height: 1.9;
     }
 
-    .prompt { color: #3fb950; }
-    .command { color: #58a6ff; }
-    .output { color: #f0f6fc; }
+    .prompt {
+      color: #3fb950;
+    }
+
+    .command {
+      color: #58a6ff;
+    }
+
+    .output {
+      color: #f0f6fc;
+    }
 
     .cursor {
       display: inline-block;
@@ -1153,8 +1276,15 @@
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     /* ---------- ACTIVITY ---------- */
@@ -1173,7 +1303,9 @@
       font-size: 12px;
     }
 
-    .activity-item:last-child { border-bottom: 0; }
+    .activity-item:last-child {
+      border-bottom: 0;
+    }
 
     .activity-dot {
       width: 7px;
@@ -1199,14 +1331,16 @@
     }
 
     .contact-info,
-    .contact-form { padding: 21px; }
+    .contact-form {
+      padding: 21px;
+    }
 
     .contact-info h3 {
       font-size: 20px;
       margin-bottom: 8px;
     }
 
-    .contact-info > p {
+    .contact-info>p {
       color: var(--muted);
       margin-bottom: 17px;
     }
@@ -1219,9 +1353,13 @@
       color: var(--muted);
     }
 
-    .contact-link:hover { color: var(--blue); }
+    .contact-link:hover {
+      color: var(--blue);
+    }
 
-    .form-group { margin-bottom: 13px; }
+    .form-group {
+      margin-bottom: 13px;
+    }
 
     .form-group label {
       display: block;
@@ -1251,7 +1389,7 @@
     .input:focus,
     .textarea:focus {
       border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(88,166,255,.12);
+      box-shadow: 0 0 0 3px rgba(88, 166, 255, .12);
     }
 
     .form-message {
@@ -1261,8 +1399,13 @@
       font-size: 10px;
     }
 
-    .success { color: var(--green-bright); }
-    .error { color: var(--red); }
+    .success {
+      color: var(--green-bright);
+    }
+
+    .error {
+      color: var(--red);
+    }
 
     /* ---------- FOOTER / BACK TO TOP ---------- */
 
@@ -1286,8 +1429,13 @@
       gap: 16px;
     }
 
-    .footer-links a { color: var(--muted); }
-    .footer-links a:hover { color: var(--blue); }
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .footer-links a:hover {
+      color: var(--blue);
+    }
 
     .back-top {
       position: fixed;
@@ -1306,7 +1454,9 @@
       z-index: 700;
     }
 
-    .back-top.show { display: grid; }
+    .back-top.show {
+      display: grid;
+    }
 
     /* ---------- MODAL / COMMAND PALETTE ---------- */
 
@@ -1317,12 +1467,14 @@
       align-items: flex-start;
       justify-content: center;
       padding: 10vh 16px 20px;
-      background: rgba(0,0,0,.58);
+      background: rgba(0, 0, 0, .58);
       backdrop-filter: blur(7px);
       z-index: 1100;
     }
 
-    .overlay.open { display: flex; }
+    .overlay.open {
+      display: flex;
+    }
 
     .palette {
       width: min(620px, 100%);
@@ -1330,7 +1482,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface);
-      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
     }
 
     .palette-search {
@@ -1365,7 +1517,9 @@
     }
 
     .palette-item:hover,
-    .palette-item.selected { background: var(--surface-2); }
+    .palette-item.selected {
+      background: var(--surface-2);
+    }
 
     .palette-item small {
       margin-left: auto;
@@ -1382,7 +1536,7 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       background: var(--surface);
-      box-shadow: 0 24px 80px rgba(0,0,0,.45);
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .45);
     }
 
     .modal-head {
@@ -1406,7 +1560,9 @@
       line-height: 1.25;
     }
 
-    .modal p { color: var(--muted); }
+    .modal p {
+      color: var(--muted);
+    }
 
     .modal-block {
       padding: 12px 0;
@@ -1422,18 +1578,46 @@
     /* ---------- RESPONSIVE ---------- */
 
     @media (max-width: 1080px) {
-      .nav-links { display: none; }
-      .hamburger { display: inline-grid; }
-      .layout { grid-template-columns: 230px minmax(0, 1fr); gap: 25px; }
-      .avatar-wrap { max-width: 230px; }
-      .services { grid-template-columns: repeat(2, 1fr); }
-      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+      .nav-links {
+        display: none;
+      }
+
+      .hamburger {
+        display: inline-grid;
+      }
+
+      .layout {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 25px;
+      }
+
+      .avatar-wrap {
+        max-width: 230px;
+      }
+
+      .services {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
     @media (max-width: 820px) {
-      .container { width: min(var(--max), calc(100% - 24px)); }
-      .nav-search { display: none; }
-      .layout { display: block; padding-top: 20px; }
+      .container {
+        width: min(var(--max), calc(100% - 24px));
+      }
+
+      .nav-search {
+        display: none;
+      }
+
+      .layout {
+        display: block;
+        padding-top: 20px;
+      }
+
       .sidebar {
         position: static;
         margin-bottom: 28px;
@@ -1441,54 +1625,136 @@
         grid-template-columns: 120px 1fr;
         gap: 4px 18px;
       }
+
       .avatar-wrap {
         grid-row: 1 / span 5;
         width: 120px;
         max-width: none;
         margin: 0;
       }
+
       .sidebar h1,
       .sidebar .handle,
       .sidebar .bio,
       .sidebar .availability,
       .sidebar .meta,
-      .sidebar .socials { grid-column: 2; }
-      .sidebar .meta { padding-bottom: 8px; margin-bottom: 4px; }
-      .sidebar .socials { display: flex; flex-wrap: wrap; gap: 13px; }
-      .quick-stats { grid-template-columns: repeat(2, 1fr); }
+      .sidebar .socials {
+        grid-column: 2;
+      }
+
+      .sidebar .meta {
+        padding-bottom: 8px;
+        margin-bottom: 4px;
+      }
+
+      .sidebar .socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 13px;
+      }
+
+      .quick-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
       .repo-grid,
       .project-grid,
-      .contact-grid { grid-template-columns: 1fr; }
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 560px) {
-      .nav { min-height: 58px; }
-      .nav-actions .icon-btn:first-child { display: none; }
-      .brand span { display: none; }
-      .hero-title { font-size: 31px; }
-      .hero-handle { font-size: 16px; }
-      .readme-body { padding: 17px; }
-      .skills-grid { grid-template-columns: 1fr; }
-      .services { grid-template-columns: 1fr 1fr; }
-      .section-head { display: block; }
-      .section-subtitle { margin-top: 5px; }
+      .nav {
+        min-height: 58px;
+      }
+
+      .nav-actions .icon-btn:first-child {
+        display: none;
+      }
+
+      .brand span {
+        display: none;
+      }
+
+      .hero-title {
+        font-size: 31px;
+      }
+
+      .hero-handle {
+        font-size: 16px;
+      }
+
+      .readme-body {
+        padding: 17px;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-subtitle {
+        margin-top: 5px;
+      }
+
       .sidebar {
         grid-template-columns: 92px 1fr;
         gap: 3px 14px;
       }
-      .avatar-wrap { width: 92px; }
-      .sidebar h1 { font-size: 21px; }
-      .handle { font-size: 15px; }
-      .bio { font-size: 12px; }
-      .availability { font-size: 10px; padding: 4px 8px; }
-      .meta { font-size: 11px; }
-      .services { gap: 7px; }
-      .service { padding: 12px 6px; font-size: 11px; }
-      .back-top { right: 14px; bottom: 14px; }
+
+      .avatar-wrap {
+        width: 92px;
+      }
+
+      .sidebar h1 {
+        font-size: 21px;
+      }
+
+      .handle {
+        font-size: 15px;
+      }
+
+      .bio {
+        font-size: 12px;
+      }
+
+      .availability {
+        font-size: 10px;
+        padding: 4px 8px;
+      }
+
+      .meta {
+        font-size: 11px;
+      }
+
+      .services {
+        gap: 7px;
+      }
+
+      .service {
+        padding: 12px 6px;
+        font-size: 11px;
+      }
+
+      .back-top {
+        right: 14px;
+        bottom: 14px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
+
+      *,
+      *::before,
+      *::after {
         scroll-behavior: auto !important;
         animation-duration: .01ms !important;
         transition-duration: .01ms !important;
@@ -1517,6 +1783,7 @@
         <a href="#overview">Overview</a>
         <a href="#repositories">Repositories</a>
         <a href="#projects">Projects</a>
+        <a href="private-projects.html">Private Projects</a>
         <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
@@ -1532,6 +1799,7 @@
       <a href="#overview">Overview</a>
       <a href="#repositories">Repositories</a>
       <a href="#projects">Projects</a>
+      <a href="private-projects.html">Private Projects</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#contact">Contact</a>
@@ -1542,7 +1810,7 @@
     <aside class="sidebar">
       <div class="avatar-wrap">
         <img class="avatar" src="177320722.jpg" alt="Dhananjay profile photo"
-             onerror="this.style.objectFit='contain';this.alt='Dhananjay';">
+          onerror="this.style.objectFit='contain';this.alt='Dhananjay';">
         <span class="online-ring" title="Available for opportunities"></span>
       </div>
 
@@ -1560,7 +1828,8 @@
 
       <div class="socials">
         <a href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ GitHub</a>
-        <a href="https://www.linkedin.com/in/dhananjay-shirse-90960a321?utm_source=share_via&utm_content=profile&utm_medium=member_android" id="linkedinSide">in LinkedIn</a>
+        <a href="https://www.linkedin.com/in/dhananjay-shirse-90960a321?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+          id="linkedinSide">in LinkedIn</a>
         <a href="mailto:dhananjayshirse7777@gmail.com">✉ Email</a>
       </div>
     </aside>
@@ -1570,7 +1839,8 @@
         <div class="hero-title">Hi, I'm <span>Dhananjay</span>.</div>
         <div class="hero-handle">@dhananjay-77</div>
         <div class="hero-role">Freelancer &amp; Junior Web Developer</div>
-        <div class="hero-subtitle">Building practical web applications, websites and customized management systems.</div>
+        <div class="hero-subtitle">Building practical web applications, websites and customized management systems.
+        </div>
 
         <div class="hero-copy">
           Fresher developer with hands-on experience working on real-world websites,
@@ -1580,6 +1850,7 @@
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">▣ View Projects</a>
           <a class="btn" href="#contact">✉ Contact Me</a>
+          <a class="btn" href="private-projects.html">▣ Private Projects</a>
           <a class="btn" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ GitHub Profile</a>
           <button class="btn btn-ghost" id="copyUsername">⧉ Copy Username</button>
         </div>
@@ -1641,12 +1912,14 @@
         <div class="contrib-scroll">
           <div class="months" id="months"></div>
           <div class="graph-row">
-            <div class="day-labels"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+            <div class="day-labels">
+              <span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
             <div class="weeks" id="weeks"></div>
           </div>
         </div>
         <div class="legend">
-          Less <i></i><i style="background:#0e4429"></i><i style="background:#006d32"></i><i style="background:#26a641"></i><i style="background:#39d353"></i> More
+          Less <i></i><i style="background:#0e4429"></i><i style="background:#006d32"></i><i
+            style="background:#26a641"></i><i style="background:#39d353"></i> More
         </div>
       </section>
 
@@ -1780,7 +2053,8 @@
               Feel free to reach out. I'm open to learning and professional opportunities.
             </p>
 
-            <a class="contact-link" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ github.com/dhananjay-77</a>
+            <a class="contact-link" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉
+              github.com/dhananjay-77</a>
             <a class="contact-link" href="#" id="linkedinContact">in LinkedIn</a>
             <a class="contact-link" href="mailto:dhananjayshirse7777@gmail.com">✉ dhananjayshirse7777@gmail.com</a>
 
@@ -1825,7 +2099,8 @@
   <!-- Command palette -->
   <div class="overlay" id="paletteOverlay" aria-hidden="true">
     <div class="palette" role="dialog" aria-modal="true" aria-label="Portfolio search">
-      <input class="palette-search" id="paletteInput" placeholder="Search projects, skills, sections..." autocomplete="off">
+      <input class="palette-search" id="paletteInput" placeholder="Search projects, skills, sections..."
+        autocomplete="off">
       <div class="palette-results" id="paletteResults"></div>
     </div>
   </div>
@@ -2105,7 +2380,7 @@
 
     function escapeHTML(value) {
       return String(value).replace(/[&<>"']/g, char => ({
-        "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#039;"
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;"
       }[char]));
     }
 
@@ -2115,7 +2390,7 @@
         const old = button.textContent;
         button.textContent = successText;
         setTimeout(() => button.textContent = old, 1300);
-      }).catch(() => {});
+      }).catch(() => { });
     }
 
     /* =========================================================
@@ -2132,7 +2407,7 @@
           <p class="repo-desc">${escapeHTML(repo.desc)}</p>
           <div class="repo-tags">
             <span class="tech"><span class="lang-dot" style="background:${repo.langColor}"></span>${repo.lang}</span>
-            ${repo.tags.slice(0,3).map(tag => `<span class="tech">${escapeHTML(tag)}</span>`).join("")}
+            ${repo.tags.slice(0, 3).map(tag => `<span class="tech">${escapeHTML(tag)}</span>`).join("")}
           </div>
           <div class="repo-meta">
             <span>★ ${repo.stars}</span>
@@ -2141,8 +2416,8 @@
           </div>
           <div class="repo-action">
             ${repo.url !== "#"
-              ? `<a class="btn" href="${repo.url}" target="_blank" rel="noopener">View Project ↗</a>`
-              : `<span class="btn" style="opacity:.55;cursor:default;">Private / Client Project</span>`}
+          ? `<a class="btn" href="${repo.url}" target="_blank" rel="noopener">View Project ↗</a>`
+          : `<a class="btn" href="private-projects.html">Private Project ↗</a>`}
           </div>
         </article>
       `).join("");
@@ -2158,7 +2433,7 @@
             <h3>${escapeHTML(project.title)}</h3>
             <p>${escapeHTML(project.desc)}</p>
             <div class="problem">Problem solved: ${escapeHTML(project.problem)}</div>
-            <ul class="features">${project.features.slice(0,4).map(f => `<li>${escapeHTML(f)}</li>`).join("")}</ul>
+            <ul class="features">${project.features.slice(0, 4).map(f => `<li>${escapeHTML(f)}</li>`).join("")}</ul>
             <div class="tech-row">${project.tech.map(t => `<span class="badge">${escapeHTML(t)}</span>`).join("")}</div>
             <div class="project-bottom">
               <span class="status">${escapeHTML(project.status)}</span>
@@ -2242,7 +2517,7 @@
         return state / 4294967296;
       };
 
-      const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+      const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
       $("#months").innerHTML = months.map(m => `<span>${m}</span>`).join("");
 
       let html = "";
@@ -2254,7 +2529,7 @@
           total += count;
           const date = new Date();
           date.setDate(date.getDate() - ((weeks - 1 - w) * 7 + (6 - d)));
-          const label = date.toLocaleDateString("en-US", {year:"numeric", month:"long", day:"numeric"});
+          const label = date.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
           html += `<span class="day" data-level="${level}" title="${count} activities on ${label}" aria-label="${count} activities on ${label}"></span>`;
         }
         html += `</div>`;
@@ -2304,6 +2579,7 @@
       ["Overview", "#overview"],
       ["Repositories", "#repositories"],
       ["Projects", "#projects"],
+      ["Private Projects", "private-projects.html"],
       ["Skills", "#skills"],
       ["Experience", "#experience"],
       ["Education", "#education"],
@@ -2359,7 +2635,7 @@
       $("#progress").style.width = `${height > 0 ? (scrollTop / height) * 100 : 0}%`;
       $("#backTop").classList.toggle("show", scrollTop > 600);
 
-      const sections = ["overview","repositories","projects","skills","experience","contact"];
+      const sections = ["overview", "repositories", "projects", "skills", "experience", "contact"];
       let current = "overview";
       sections.forEach(id => {
         const el = document.getElementById(id);
@@ -2381,7 +2657,7 @@
           revealObserver.unobserve(entry.target);
         }
       });
-    }, {threshold:.08, rootMargin:"0px 0px -25px 0px"});
+    }, { threshold: .08, rootMargin: "0px 0px -25px 0px" });
 
     function observeReveals() {
       $$(".reveal").forEach(el => {
@@ -2427,7 +2703,7 @@
       closePalette();
 
       if (target.startsWith("#")) {
-        document.querySelector(target)?.scrollIntoView({behavior:"smooth", block:"start"});
+        document.querySelector(target)?.scrollIntoView({ behavior: "smooth", block: "start" });
       } else {
         window.open(target, "_blank", "noopener");
       }
@@ -2451,12 +2727,12 @@
         const target = document.querySelector(a.getAttribute("href"));
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({behavior:"smooth", block:"start"});
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
 
-    $("#backTop").addEventListener("click", () => window.scrollTo({top:0, behavior:"smooth"}));
+    $("#backTop").addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
 
     $("#copyUsername").addEventListener("click", e => copyText(PORTFOLIO.username, e.currentTarget, "Copied!"));
 
@@ -2514,7 +2790,7 @@
       }
     });
 
-    window.addEventListener("scroll", updateScrollUI, {passive:true});
+    window.addEventListener("scroll", updateScrollUI, { passive: true });
 
     /* =========================================================
        INIT
@@ -2523,7 +2799,7 @@
     applyTheme(savedTheme === "light" ? "light" : "dark");
 
     if (PORTFOLIO.linkedin !== "#") {
-      ["linkedinSide","linkedinContact","linkedinFooter"].forEach(id => {
+      ["linkedinSide", "linkedinContact", "linkedinFooter"].forEach(id => {
         const el = document.getElementById(id);
         if (el) {
           el.href = PORTFOLIO.linkedin;
@@ -2545,4 +2821,5 @@
     updateScrollUI();
   </script>
 </body>
+
 </html>

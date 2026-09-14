@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Project Access — Dhananjay</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --surface: #161b22;
+            --surface2: #21262d;
+            --border: #30363d;
+            --text: #f0f6fc;
+            --muted: #8b949e;
+            --green: #3fb950;
+            --blue: #58a6ff;
+            --purple: #bc8cff;
+            --red: #f85149;
+            --shadow: 0 18px 55px rgba(0, 0, 0, .28);
+            --radius: 12px;
+            --font: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Arial, sans-serif;
+            --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace
+        }
+
+        [data-theme=light] {
+            --bg: #fff;
+            --surface: #f6f8fa;
+            --surface2: #eef1f4;
+            --border: #d0d7de;
+            --text: #1f2328;
+            --muted: #59636e;
+            --green: #1f883d;
+            --blue: #0969da;
+            --purple: #8250df;
+            --shadow: 0 18px 55px rgba(31, 35, 40, .10)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font: 14px/1.6 var(--font);
+            overflow-x: hidden
+        }
+
+        a {
+            color: var(--blue);
+            text-decoration: none
+        }
+
+        .container {
+            width: min(1120px, calc(100% - 32px));
+            margin: auto
+        }
+
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            background: color-mix(in srgb, var(--bg) 92%, transparent);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        .nav {
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 14px
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            color: var(--text);
+            font-weight: 800
+        }
+
+        .brand-mark {
+            display: grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--green);
+            font-family: var(--mono)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 4px;
+            margin-left: auto
+        }
+
+        .nav-links a {
+            padding: 8px 10px;
+            border-radius: 7px;
+            color: var(--text);
+            font-weight: 600;
+            font-size: 12px
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--surface2)
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 7px
+        }
+
+        .icon-btn {
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            background: transparent;
+            color: var(--text);
+            cursor: pointer
+        }
+
+        .hero {
+            padding: 62px 0 35px
+        }
+
+        .eyebrow {
+            color: var(--green);
+            font: 700 11px var(--mono);
+            text-transform: uppercase;
+            letter-spacing: .6px
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 58px);
+            line-height: 1.05;
+            letter-spacing: -1.8px;
+            margin: 9px 0 12px
+        }
+
+        .hero h1 span {
+            color: var(--green)
+        }
+
+        .hero p {
+            max-width: 760px;
+            color: var(--muted);
+            font-size: 16px
+        }
+
+        .actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 20px
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 38px;
+            padding: 8px 13px;
+            border: 1px solid var(--border);
+            border-radius: 7px;
+            background: var(--surface2);
+            color: var(--text);
+            font-size: 12px;
+            font-weight: 700
+        }
+
+        .btn:hover {
+            border-color: var(--blue);
+            transform: translateY(-1px)
+        }
+
+        .btn-primary {
+            background: var(--green);
+            border-color: var(--green);
+            color: #fff
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 14px;
+            padding-bottom: 60px
+        }
+
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            box-shadow: var(--shadow)
+        }
+
+        .card:hover {
+            border-color: var(--blue)
+        }
+
+        .tag {
+            display: inline-flex;
+            padding: 4px 8px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            color: var(--muted);
+            font: 10px var(--mono);
+            margin: 3px
+        }
+
+        .project-code {
+            color: var(--green);
+            font: 11px var(--mono);
+            margin-bottom: 7px
+        }
+
+        .card h2 {
+            font-size: 19px;
+            margin-bottom: 7px
+        }
+
+        .card p {
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .facts {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 15px 0
+        }
+
+        .fact {
+            padding: 10px;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px
+        }
+
+        .fact strong {
+            display: block;
+            font-family: var(--mono);
+            font-size: 12px
+        }
+
+        .fact span {
+            color: var(--muted);
+            font-size: 10px
+        }
+
+        .section {
+            padding: 10px 0 35px
+        }
+
+        .section h2 {
+            font-size: 22px;
+            margin-bottom: 6px
+        }
+
+        .section>p {
+            color: var(--muted);
+            margin-bottom: 14px
+        }
+
+        .list {
+            display: grid;
+            gap: 8px;
+            padding-left: 18px;
+            color: var(--muted);
+            font-size: 12px
+        }
+
+        .callout {
+            border-left: 3px solid var(--green);
+            padding: 15px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-left-color: var(--green);
+            border-radius: 8px
+        }
+
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 30px 0;
+            color: var(--muted);
+            font-size: 11px
+        }
+
+        .back {
+            margin: 25px 0
+        }
+
+        .detail {
+            display: grid;
+            grid-template-columns: 1.5fr .8fr;
+            gap: 14px
+        }
+
+        .side {
+            position: sticky;
+            top: 90px;
+            align-self: start
+        }
+
+        .status {
+            color: var(--green);
+            font: 700 11px var(--mono)
+        }
+
+        .notice {
+            color: var(--muted);
+            font-size: 11px
+        }
+
+        .screens {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px
+        }
+
+        .shot {
+            min-height: 130px;
+            display: grid;
+            place-items: center;
+            background: var(--bg);
+            border: 1px dashed var(--border);
+            border-radius: 9px;
+            color: var(--muted);
+            font: 11px var(--mono)
+        }
+
+        @media(max-width:800px) {
+            .nav-links {
+                display: none
+            }
+
+            .grid,
+            .detail {
+                grid-template-columns: 1fr
+            }
+
+            .side {
+                position: static
+            }
+
+            .screens {
+                grid-template-columns: 1fr
+            }
+
+            .hero {
+                padding-top: 42px
+            }
+        }
+
+        @media(max-width:560px) {
+            .container {
+                width: min(100% - 24px, 1120px)
+            }
+
+            .facts {
+                grid-template-columns: 1fr
+            }
+
+            .hero h1 {
+                font-size: 34px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="container nav"><a class="brand" href="index.html"><span
+                    class="brand-mark">&lt;/&gt;</span><span>dhananjay-77</span></a>
+            <nav class="nav-links"><a href="index.html">Portfolio</a><a href="private-projects.html">Private
+                    Projects</a></nav>
+            <div class="nav-actions"><button class="icon-btn" id="theme">☼</button></div>
+        </div>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <div class="eyebrow">PROJECT ACCESS</div>
+            <h1>Request a private <span>demo.</span></h1>
+            <p>For client projects, the public portfolio shows only high-level information. Use this page to request a
+                demo, screenshots, or a discussion about the implementation.</p>
+        </section>
+        <section class="card" style="max-width:760px;margin-bottom:60px">
+            <form id="form">
+                <div class="section"><label>Project</label><select id="project"
+                        style="width:100%;padding:11px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:7px"></select>
+                </div>
+                <div class="section"><label>Your name</label><input id="name" required
+                        style="width:100%;padding:11px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:7px">
+                </div>
+                <div class="section"><label>Email</label><input id="email" type="email" required
+                        style="width:100%;padding:11px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:7px">
+                </div>
+                <div class="section"><label>Message</label><textarea id="message" required rows="6"
+                        style="width:100%;padding:11px;background:var(--bg);color:var(--text);border:1px solid var(--border);border-radius:7px"
+                        placeholder="Tell me what you would like to see or discuss."></textarea></div><button
+                    class="btn btn-primary" type="submit">Send Request ↗</button>
+                <p id="msg" class="notice" style="margin-top:12px"></p>
+            </form>
+        </section>
+    </main>
+    <script>const PRIVATE_PROJECTS = {
+            "abvp-expense-management": { code: "PRV-01", title: "ABVP Deogiri State Expense Management", type: "Custom Software", status: "Completed", client: "ABVP Deogiri State", tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"], summary: "A private organizational expense-management system built to replace manual expense records with a structured digital workflow.", problem: "Manual expense tracking, transaction records and reporting were difficult to maintain consistently.", features: ["Expense records", "Transaction management", "Administrative workflow", "Reporting workflow", "Responsive interface"], access: "Private / Client Project" },
+            "abvp-voucher-management": { code: "PRV-02", title: "ABVP Chhatrapati Sambhajinagar Mahanagar Voucher Management", type: "Custom Software", status: "Completed", client: "ABVP Chhatrapati Sambhajinagar Mahanagar", tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"], summary: "A private portal for managing vouchers, payment information and administrative records.", problem: "Voucher and payment information needed a more organized, searchable workflow.", features: ["Voucher records", "Payment information", "Administrative workflows", "Structured record management", "Responsive interface"], access: "Private / Client Project" },
+            "prerna-voucher-management": { code: "PRV-03", title: "Prerna Foundation Voucher Management", type: "Custom Software", status: "Completed", client: "Prerna Foundation", tech: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"], summary: "A private voucher-management system for organizational payment and voucher records.", problem: "Manual voucher handling and payment-record management created repetitive administrative work.", features: ["Voucher creation", "Payment details", "Voucher records", "Print functionality", "Amount handling", "Administrative workflow", "Responsive interface"], access: "Private / Client Project" },
+            "foundation-web-projects": { code: "PRV-04", title: "Foundation Web Projects", type: "Website Development", status: "Private", client: "Organizations / Foundations", tech: ["HTML", "CSS", "JavaScript"], summary: "A collection of organization-focused website work where client source code or internal implementation details are kept private.", problem: "Organizations needed professional web presence while keeping internal implementation and client material restricted.", features: ["Responsive website implementation", "Organization-focused pages", "Frontend customization", "Private client delivery"], access: "Private / Client Work" }
+        };
+        function esc(s) { return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[c])) }
+        function theme() { const x = localStorage.getItem('dhananjay-theme') === 'light' ? 'light' : 'dark'; document.documentElement.dataset.theme = x; document.querySelector('#theme').textContent = x === 'dark' ? '☼' : '☾' }
+        document.querySelector('#theme').onclick = () => { localStorage.setItem('dhananjay-theme', document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'); theme() }; theme();
+        const select = document.querySelector('#project'); Object.entries(PRIVATE_PROJECTS).forEach(([s, p]) => select.insertAdjacentHTML('beforeend', `<option value="${esc(s)}">${esc(p.title)}</option>`)); const q = new URLSearchParams(location.search).get('project'); if (PRIVATE_PROJECTS[q]) select.value = q; document.querySelector('#form').onsubmit = e => {
+            e.preventDefault(); const p = PRIVATE_PROJECTS[select.value]; const name = document.querySelector('#name').value.trim(), email = document.querySelector('#email').value.trim(), message = document.querySelector('#message').value.trim(); const subject = encodeURIComponent('Private Project Demo Request — ' + p.title); const body = encodeURIComponent(`Name: ${name}
+Email: ${email}
+Project: ${p.title}
+
+${message}`); location.href = `mailto:dhananjayshirse7777@gmail.com?subject=${subject}&body=${body}`; document.querySelector('#msg').textContent = 'Opening your email app…'
+        }; document.querySelector('#theme').onclick = () => { localStorage.setItem('dhananjay-theme', document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'); theme() }; theme();</script>
+</body>
+
+</html>
