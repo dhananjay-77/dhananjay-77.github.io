@@ -4,9 +4,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Dhananjay —  Web Developer portfolio">
-  <meta name="theme-color" content="#0d1117">
-  <title>Dhananjay — Web Developer</title>
+  <meta name="description" content="Dhananjay Shirse is a Web Developer building practical websites, custom web applications and management systems using modern web technologies.">
+  <meta name="theme-color" content="#f7f9fc">
+  <meta property="og:title" content="Dhananjay Shirse | Web Developer &amp; Software Developer">
+  <meta property="og:description" content="Practical websites, custom web applications and management systems.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dhananjay-77.vercel.app/">
+  <link rel="canonical" href="https://dhananjay-77.vercel.app/">
+  <title>Dhananjay Shirse | Web Developer &amp; Software Developer</title>
 
   <style>
     /* =========================================================
@@ -1804,7 +1809,112 @@
         transition-duration: .01ms !important;
       }
     }
-  </style>
+
+        /* Portfolio visual system */
+    :root, [data-theme="light"] {
+      --bg: #f7f9fc;
+      --surface: #ffffff;
+      --surface-2: #eef3f9;
+      --surface-3: #e2eaf4;
+      --border: #dce4ee;
+      --border-hover: #b8c7d9;
+      --text: #111827;
+      --muted: #536579;
+      --muted-2: #64748b;
+      --green: #2563eb;
+      --green-bright: #2563eb;
+      --blue: #2563eb;
+      --purple: #476b98;
+      --shadow: 0 16px 42px rgba(11, 31, 58, .07);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max: 1160px;
+    }
+
+    [data-theme="dark"] {
+      --bg: #0b1422;
+      --surface: #111e30;
+      --surface-2: #172840;
+      --surface-3: #203652;
+      --border: #293d57;
+      --border-hover: #3e5878;
+      --text: #edf3fa;
+      --muted: #b2c0d0;
+      --muted-2: #95a8bf;
+      --green: #4e8df5;
+      --green-bright: #78a9ff;
+      --blue: #78a9ff;
+      --purple: #a9bde0;
+      --shadow: 0 18px 46px rgba(0, 0, 0, .24);
+    }
+
+    :focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+    .progress { background: var(--blue); height: 2px; }
+    .navbar { background: color-mix(in srgb, var(--bg) 94%, transparent); }
+    .brand-mark { color: var(--blue); border-color: var(--border); }
+    .nav-links a { border-radius: 8px; }
+    .nav-links a:hover, .nav-links a.active { color: var(--blue); background: var(--surface-2); }
+    .layout { grid-template-columns: minmax(0, 1fr); padding-top: 56px; gap: 24px; }
+    .sidebar { display: none; }
+    main#overview { min-width: 0; }
+    .hero { position: relative; padding: clamp(30px, 6vw, 72px); border: 1px solid var(--border); border-radius: 24px; background: var(--surface); box-shadow: var(--shadow); }
+    .hero-photo { float: right; width: clamp(118px, 16vw, 168px); height: clamp(118px, 16vw, 168px); object-fit: cover; object-position: center 24%; margin: 4px 0 22px 32px; border: 4px solid var(--surface); border-radius: 50%; box-shadow: 0 0 0 1px var(--border), 0 14px 32px rgba(11,31,58,.13); }
+    .hero-title { max-width: 850px; font-size: clamp(40px, 7vw, 72px); font-weight: 750; letter-spacing: -.055em; }
+    .hero-title span { color: var(--text); }
+    .hero-handle { display: none; }
+    .hero-role { color: var(--blue); font-size: clamp(19px, 2.4vw, 25px); font-weight: 650; }
+    .hero-subtitle { max-width: 700px; font-size: clamp(18px, 2.5vw, 23px); color: var(--text); }
+    .hero-copy { max-width: 690px; color: var(--muted); font-size: 16px; line-height: 1.8; }
+    .hero-actions { gap: 10px; margin-top: 22px; }
+    .btn { min-height: 44px; padding: 10px 17px; border-radius: 10px; }
+    .btn-primary { background: #174b89; border-color: #174b89; }
+    [data-theme="dark"] .btn-primary { background: #2866b8; border-color: #2866b8; }
+    .section { margin-bottom: 58px; scroll-margin-top: 92px; }
+    .section-title { font-size: clamp(23px, 3vw, 30px); letter-spacing: -.035em; }
+    .section-title .mark { display: none; }
+    .section-subtitle { font-size: 15px; }
+    .card { border-radius: 16px; box-shadow: 0 2px 8px rgba(11,31,58,.025); }
+    .readme-header { font-size: 13px; }
+    .readme-body { padding: clamp(22px, 4vw, 40px); }
+    .readme-body h2 { font-size: 25px; }
+    .code-card, .contrib, .terminal, .quick-stats { display: none !important; }
+    .about-list { line-height: 1.9; }
+    .badge { border-radius: 999px; padding: 6px 10px; }
+    .repo-grid, .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+    .repo, .project { padding: 22px; border-radius: 16px; }
+    .repo-meta { display: none; }
+    .project { display: flex; flex-direction: column; }
+    .project h3 { font-size: 21px; line-height: 1.3; }
+    .project p, .repo-desc { font-size: 14px; line-height: 1.7; }
+    .project-bottom { margin-top: auto; padding-top: 18px; flex-wrap: wrap; }
+    .project[data-project="0"] { border-color: #9dbbe6; box-shadow: 0 14px 35px rgba(37,99,235,.10); }
+    .project[data-project="0"] .project-type { color: var(--blue); }
+    .features li { line-height: 1.55; }
+    .filters { gap: 8px; }
+    .filter { min-height: 38px; padding: 8px 13px; border-radius: 999px; }
+    .skills-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .skill-card { padding: 22px; }
+    .skill { display: inline-flex; margin: 6px 5px 0 0; }
+    .skill-line { padding: 7px 10px; border: 1px solid var(--border); border-radius: 999px; background: var(--surface-2); }
+    .skill-line .level, .skill .bar { display: none; }
+    .timeline-item { padding: 0 0 26px 22px; }
+    .testimonials { gap: 18px; }
+    .testimonial { padding: 24px; }
+    .testimonial-stars { display: none; }
+    .testimonial-quote { font-size: 15px; color: var(--text); }
+    .contact-info, .contact-form { padding: clamp(20px, 4vw, 32px); }
+    .contact-info h3 { font-size: 25px; }
+    .input, .textarea { min-height: 46px; padding: 12px; border-radius: 9px; }
+    .textarea { min-height: 130px; }
+    footer { padding: 34px 0; font-size: 13px; }
+    .footer-inner::before { content: "Dhananjay Shirse · Web Developer & Software Developer"; color: var(--text); font-size: 15px; font-weight: 700; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
+    .footer-inner .mono { display: none; }
+    .mobile-menu a { padding: 13px; }
+    .project-live { margin-left: auto; }
+    @media (max-width: 820px) { .layout { padding-top: 28px; } .repo-grid,.project-grid { grid-template-columns: 1fr; } .skills-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+    @media (max-width: 560px) { .hero { padding: 27px 21px; border-radius: 18px; } .hero-photo { float: none; display: block; width: 104px; height: 104px; margin: 0 0 19px; } .hero-actions .btn { flex: 1 1 145px; } .skills-grid { grid-template-columns: 1fr; } .services { grid-template-columns: 1fr; } .section { margin-bottom: 44px; } .container { width: min(var(--max),calc(100% - 30px)); } }
+</style>
 </head>
 
 <body>
@@ -1814,7 +1924,7 @@
     <div class="container nav">
       <a class="brand" href="#overview" aria-label="Dhananjay home">
         <span class="brand-mark">&lt;/&gt;</span>
-        <span>dhananjay-77</span>
+        <span>Dhananjay Shirse</span>
       </a>
 
       <button class="nav-search" id="openPalette" aria-label="Open search">
@@ -1824,29 +1934,26 @@
       </button>
 
       <nav class="nav-links" id="desktopNav">
-        <a href="#overview">Overview</a>
-        <a href="#repositories">Repositories</a>
+        <a href="#overview">Home</a>
+        <a href="#readme">About</a>
         <a href="#projects">Projects</a>
-        <a href="private-projects.html">Private Projects</a>
-        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
-        <a href="#feedback">Feedback</a>
+        <a href="#experience">Experience</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
         <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☼</button>
-        <button class="icon-btn hamburger" id="menuToggle" title="Menu" aria-label="Open menu">☰</button>
+        <button class="icon-btn hamburger" id="menuToggle" title="Menu" aria-label="Open menu" aria-controls="mobileMenu" aria-expanded="false">☰</button>
       </div>
     </div>
 
     <div class="container mobile-menu" id="mobileMenu">
-      <a href="#overview">Overview</a>
-      <a href="#repositories">Repositories</a>
+      <a href="#overview">Home</a>
+      <a href="#readme">About</a>
       <a href="#projects">Projects</a>
-      <a href="private-projects.html">Private Projects</a>
-      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
+      <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
     </div>
   </header>
@@ -1881,35 +1988,29 @@
 
     <main id="overview">
       <section class="hero reveal">
-        <div class="hero-title">Hi, I'm <span>Dhananjay</span>.</div>
+        <img class="hero-photo" src="177320722.jpg" alt="Portrait of Dhananjay Shirse" width="400" height="400">
+        <h1 class="hero-title">Dhananjay Shirse</h1>
         <div class="hero-handle">@dhananjay-77</div>
-        <div class="hero-role">Freelancer &amp; Web Developer</div>
-        <div class="hero-subtitle">Building practical web applications, websites and customized management systems.
+        <div class="hero-role">Web Developer &amp; Software Developer</div>
+        <div class="hero-subtitle">Building practical websites, custom web applications and management systems.
         </div>
 
         <div class="hero-copy">
-          Fresher developer with hands-on experience working on real-world websites,
-          backend development and customized software solutions for organizations and businesses.
+          I develop websites and database-driven software for real-world needs, with a focus on clear interfaces,
+          useful workflows and continuous learning.
         </div>
 
         <div class="hero-actions">
           <a class="btn btn-primary" href="#projects">▣ View Projects</a>
           <a class="btn" href="#contact">✉ Contact Me</a>
-          <a class="btn" href="private-projects.html">▣ Private Projects</a>
           <a class="btn" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉ GitHub Profile</a>
-          <button class="btn btn-ghost" id="copyUsername">⧉ Copy Username</button>
+          <a class="btn" href="https://www.linkedin.com/in/dhananjay-shirse-90960a321?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <button class="btn btn-ghost" id="copyUsername" type="button">Copy Username</button>
         </div>
       </section>
 
-      <section class="quick-stats reveal" aria-label="Portfolio statistics">
-        <div class="quick-stat"><strong>7+</strong><span>Projects</span></div>
-        <div class="quick-stat"><strong>3+</strong><span>Websites</span></div>
-        <div class="quick-stat"><strong>3+</strong><span>Custom Systems</span></div>
-        <div class="quick-stat"><strong>5+</strong><span>Core Technologies</span></div>
-      </section>
-
       <section class="section card reveal" id="readme">
-        <div class="readme-header">▣ README.md <span class="muted">/</span> about</div>
+            <div class="readme-header">About Dhananjay</div>
         <div class="readme-body">
           <h2>About Me</h2>
           <p><strong> Web Developer</strong></p>
@@ -1917,9 +2018,9 @@
 
           <h3>What I'm working on</h3>
           <ul class="about-list">
-            <li>Improving full-stack development skills</li>
+            <li>Building practical websites and custom web applications</li>
             <li>Web development and custom software</li>
-            <li>Real-world project implementation</li>
+            <li>Developing database-driven applications and management systems</li>
             <li>Practical management systems</li>
             <li>Responsive and database-driven applications</li>
             <li>Learning and professional opportunities</li>
@@ -1934,10 +2035,7 @@
             <span class="badge">Git</span>
             <span class="badge">GitHub</span>
             <span class="badge">Excel</span>
-            <span class="badge">API Intergration</span>
             <span class="badge">Python</span>
-            <span class="badge">Next.js</span>
-            <span class="badge">Node.js</span>
 
           </div>
 
@@ -1978,8 +2076,8 @@
       <section class="section" id="repositories">
         <div class="section-head">
           <div>
-            <h2 class="section-title"><span class="mark">◈</span> Pinned Repositories</h2>
-            <div class="section-subtitle">Selected development work and project areas</div>
+            <h2 class="section-title"><span class="mark">◈</span> Selected Project Areas</h2>
+            <div class="section-subtitle">A selection of project areas and technologies represented in my work</div>
           </div>
         </div>
         <div class="repo-grid" id="repoGrid"></div>
@@ -1996,6 +2094,7 @@
         <div class="filters" id="filters">
           <button class="filter active" data-filter="all">All</button>
           <button class="filter" data-filter="websites">Websites</button>
+          <button class="filter" data-filter="legal">Legal &amp; Awareness</button>
           <button class="filter" data-filter="custom-software">Custom Software</button>
           <button class="filter" data-filter="frontend">Frontend</button>
           <button class="filter" data-filter="backend">Backend</button>
@@ -2083,7 +2182,7 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <h2 class="section-title"><span class="mark">●</span> Project Activity</h2>
+            <h2 class="section-title"><span class="mark">●</span> Project Work</h2>
           </div>
         </div>
         <div class="card activity" id="activity"></div>
@@ -2092,7 +2191,7 @@
       <section class="section" id="feedback">
         <div class="section-head">
           <div>
-            <h2 class="section-title"><span class="mark">◈</span> What they’re talking about us</h2>
+            <h2 class="section-title"><span class="mark">◈</span> Feedback</h2>
             <div class="section-subtitle">Feedback from organizations and professionals I have worked with</div>
           </div>
           <!-- <a class="btn btn-ghost" href="https://gaviaspreview.com/wp/paroti/testimonials/" target="_blank" rel="noopener">View all feedbacks</a> -->
@@ -2138,7 +2237,7 @@
 
         <div class="contact-grid">
           <div class="card contact-info">
-            <h3>Let's build something together.</h3>
+            <h3>Let's build something useful together.</h3>
             <p>
               Interested in working together or discussing a web project?
               Feel free to reach out. I'm open to learning and professional opportunities.
@@ -2146,7 +2245,7 @@
 
             <a class="contact-link" href="https://github.com/dhananjay-77" target="_blank" rel="noopener">◉
               github.com/dhananjay-77</a>
-            <a class="contact-link" href="#" id="linkedinContact">in LinkedIn</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/dhananjay-shirse-90960a321?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" id="linkedinContact" target="_blank" rel="noopener">in LinkedIn</a>
             <a class="contact-link" href="mailto:dhananjayshirse7777@gmail.com">✉ dhananjayshirse7777@gmail.com</a>
 
             <button class="btn" id="copyEmail" style="margin-top:8px;">⧉ Copy Email</button>
@@ -2176,11 +2275,13 @@
   <footer>
     <div class="container footer-inner">
          <div class="footer-links">
+        <a href="#overview">Home</a><a href="#readme">About</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
         <a href="https://github.com/dhananjay-77" target="_blank" rel="noopener">GitHub</a>
-        <a href="#" id="linkedinFooter">LinkedIn</a>
+        <a href="https://legalmarathi.com/" target="_blank" rel="noopener">LegalMarathi.com</a>
+        <a href="https://www.linkedin.com/in/dhananjay-shirse-90960a321?utm_source=share_via&amp;utm_content=profile&amp;utm_medium=member_android" id="linkedinFooter" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:dhananjayshirse7777@gmail.com">Email</a>
       </div>
-      <div class="mono" style="font-size:10px;color:var(--muted-2);">dhananjay-77</div>
+      <div class="mono" style="font-size:10px;color:var(--muted-2);">© 2026 Dhananjay Shirse. All rights reserved.</div>
     </div>
   </footer>
 
@@ -2280,6 +2381,16 @@
 
     const PROJECTS = [
       {
+        title: "LegalMarathi.com",
+        desc: "A Marathi legal information and public-awareness portal that helps make legal topics easier to understand and access.",
+        problem: "Making legal information and public-awareness resources accessible to Marathi readers.",
+        type: "Legal Information & Public Awareness Platform", status: "Live Website",
+        tech: [],
+        filters: ["websites", "frontend", "legal"],
+        features: ["Marathi legal content", "Blogs, articles and legal guides", "Laws, judgments and legal updates", "Cyber crime and online fraud awareness", "Responsive legal-information interface with SEO-friendly structure"],
+        url: "https://legalmarathi.com/"
+      },
+      {
         title: "ABVP Deogiri State Expense Management",
         desc: "Python-based organizational expense-management software with Excel upload, automatic voucher generation, and Excel/database storage as per client requirements.",
         problem: "Manual expense tracking and reporting challenges for an organizational body.",
@@ -2328,15 +2439,6 @@
         url: "#"
       },
       {
-        title: "Vidyajyot Foundation Website",
-        desc: "Official website development work for Vidyajyot Foundation.",
-        problem: "Need for a professional online presence for an educational foundation.",
-        type: "Website Development", status: "Completed",
-        tech: ["HTML", "CSS", "JavaScript"],
-        filters: ["websites", "frontend", "javascript"],
-        features: ["Official website", "Foundation presence"], url: "#"
-      },
-      {
         title: "Janprabodhani Official Website",
         desc: "Official website development and implementation work for Janprabodhani.",
         problem: "Need for an official website for a publication/organization.",
@@ -2348,55 +2450,17 @@
     ];
 
     const SKILLS = [
-      {
-        category: "Frontend",
-        items: [
-          ["HTML5", "Hands-on", 90],
-          ["CSS3", "Hands-on", 88],
-          ["JavaScript", "Working Knowledge", 72],
-          ["Responsive Web Design", "Hands-on", 86]
-        ]
-      },
-      {
-        category: "Backend",
-        items: [
-          ["PHP", "Hands-on", 80],
-          ["MySQL", "Working Knowledge", 72],
-          ["Backend Development", "Learning", 60]
-        ]
-      },
-      {
-        category: "Tools",
-        items: [
-          ["Git", "Working Knowledge", 65],
-          ["GitHub", "Hands-on", 78],
-          ["VS Code", "Hands-on", 90],
-          ["XAMPP", "Hands-on", 82]
-        ]
-      },
-      {
-        category: "Development",
-        items: [
-          ["CRUD Systems", "Hands-on", 82],
-          ["Admin Panels", "Working Knowledge", 70],
-          ["Voucher Management", "Hands-on", 82],
-          ["Expense Management", "Hands-on", 80]
-        ]
-      },
-      {
-        category: "Web Applications",
-        items: [
-          ["Database-driven Applications", "Working Knowledge", 70],
-          ["Responsive UI", "Hands-on", 84],
-          ["Website Development", "Hands-on", 88]
-        ]
-      }
+      { category: "Frontend", items: [["HTML5", "", 0], ["CSS3", "", 0], ["JavaScript", "", 0], ["Responsive Web Design", "", 0]] },
+      { category: "Backend", items: [["PHP", "", 0], ["MySQL", "", 0]] },
+      { category: "Programming", items: [["Python", "", 0]] },
+      { category: "Tools", items: [["Git", "", 0], ["GitHub", "", 0], ["VS Code", "", 0], ["XAMPP", "", 0], ["Excel", "", 0]] },
+      { category: "Practical Development", items: [["Database-driven Applications", "", 0], ["Management Systems", "", 0], ["Website Development", "", 0]] }
     ];
 
     const EXPERIENCE = [
       {
         date: "Project-based",
-        title: " / Fresher Web Developer",
+        title: "Web Developer",
         org: "Hands-on Project Experience",
         desc: "Worked on real-world website development, backend development and customized management software projects for organizations and institutions.",
         tags: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"]
@@ -2431,9 +2495,9 @@
       },
       {
         date: "Project Work",
-        title: "Vidyajyot Foundation & Janprabodhani",
+        title: "Janprabodhani",
         org: "Website Development",
-        desc: "Official website development and implementation work for both organizations.",
+        desc: "Official website development and implementation work for Janprabodhani.",
         tags: ["HTML", "CSS", "JavaScript"]
       }
     ];
@@ -2444,22 +2508,19 @@
     ];
 
     const SERVICES = [
-      ["🌐", "Business Websites"],
-      ["🏢", "Organization Websites"],
-      ["⚙", "Custom Management Software"],
-      ["🧾", "Voucher Management Systems"],
-      ["📊", "Expense Management Systems"],
-      ["▣", "Admin Dashboards"],
-      ["🗄", "Database-driven Applications"],
-      ["📱", "Responsive Websites"]
+      ["01", "Websites", "Responsive websites for businesses and organizations."],
+      ["02", "Web Applications", "Database-driven applications for practical workflows."],
+      ["03", "Management Systems", "Custom tools for registrations, records and monitoring."],
+      ["04", "PHP & MySQL Development", "Backend development for data-driven web applications."],
+      ["05", "UI & Frontend", "Clean, responsive interfaces designed for everyday use."]
     ];
 
     const ACTIVITY = [
-      ["Completed a custom voucher management system", "recent"],
-      ["Worked on organization website", "recent"],
-      ["Improved backend functionality", "recent"],
-      ["Built expense management workflow", "recent"],
-      ["Worked on responsive UI", "recent"]
+      ["Completed a custom voucher management system", "Project work"],
+      ["Developed websites for organizations", "Project work"],
+      ["Worked on backend functionality", "Project work"],
+      ["Built an expense management workflow", "Project work"],
+      ["Implemented responsive interfaces", "Project work"]
     ];
 
     /* =========================================================
@@ -2492,7 +2553,7 @@
           <div class="repo-head">
             <span>▣</span>
             <a class="repo-name" href="${repo.url}" ${repo.url !== "#" ? 'target="_blank" rel="noopener"' : ''}>${escapeHTML(repo.name)}</a>
-            <span class="repo-badge">Public</span>
+          <span class="repo-badge">Project</span>
           </div>
           <p class="repo-desc">${escapeHTML(repo.desc)}</p>
           <div class="repo-tags">
@@ -2507,7 +2568,7 @@
           <div class="repo-action">
             ${repo.url !== "#"
           ? `<a class="btn" href="${repo.url}" target="_blank" rel="noopener">View Project ↗</a>`
-          : `<a class="btn" href="private-projects.html">Private Project ↗</a>`}
+          : `<a class="btn" href="projects.html">Explore Projects ↗</a>`}
           </div>
         </article>
       `).join("");
@@ -2528,7 +2589,7 @@
             <div class="project-bottom">
               <span class="status">${escapeHTML(project.status)}</span>
               <button class="btn" data-details="${realIndex}" style="margin-left:auto;">Details ↗</button>
-              ${project.url !== "#" ? `<a class="btn" href="${project.url}" target="_blank" rel="noopener">Live ↗</a>` : ""}
+              ${project.url !== "#" ? `<a class="btn project-live" href="${project.url}" target="_blank" rel="noopener">${project.title === "LegalMarathi.com" ? "Visit Website →" : "View Project ↗"}</a>` : ""}
             </div>
           </article>
         `;
@@ -2543,10 +2604,7 @@
           <h3>${escapeHTML(category.category)}</h3>
           ${category.items.map(([name, level, width]) => `
             <div class="skill">
-              <div class="skill-line">
-                <span>${escapeHTML(name)}</span>
-                <span class="level">${escapeHTML(level)}</span>
-              </div>
+              <div class="skill-line"><span>${escapeHTML(name)}</span></div>
               <div class="bar"><i style="--width:${width}%"></i></div>
             </div>
           `).join("")}
@@ -2579,9 +2637,9 @@
     }
 
     function renderServices() {
-      $("#services").innerHTML = SERVICES.map(([icon, name]) => `
+      $("#services").innerHTML = SERVICES.map(([icon, name, desc]) => `
         <article class="service card reveal">
-          <span class="service-icon">${icon}</span>${escapeHTML(name)}
+          <span class="service-icon">${icon}</span><h3>${escapeHTML(name)}</h3><p class="muted">${escapeHTML(desc)}</p>
         </article>
       `).join("");
     }
@@ -2646,6 +2704,7 @@
       const live = $("#modalLive");
       if (p.url !== "#") {
         live.href = p.url;
+        live.textContent = p.title === "LegalMarathi.com" ? "Visit Website →" : "Open Website ↗";
         live.style.display = "inline-flex";
       } else {
         live.style.display = "none";
@@ -2762,10 +2821,12 @@
     $("#filters").addEventListener("click", e => {
       const button = e.target.closest(".filter");
       if (!button) return;
-      $$(".filter").forEach(b => b.classList.remove("active"));
+      $$(".filter").forEach(b => { b.classList.remove("active"); b.setAttribute("aria-pressed", "false"); });
       button.classList.add("active");
+      button.setAttribute("aria-pressed", "true");
       renderProjects(button.dataset.filter);
     });
+    $$(".filter").forEach(button => button.setAttribute("aria-pressed", button.classList.contains("active") ? "true" : "false"));
 
     $("#projectGrid").addEventListener("click", e => {
       const button = e.target.closest("[data-details]");
@@ -2805,11 +2866,15 @@
     });
 
     $("#menuToggle").addEventListener("click", () => {
-      $("#mobileMenu").classList.toggle("open");
+      const isOpen = $("#mobileMenu").classList.toggle("open");
+      $("#menuToggle").setAttribute("aria-expanded", String(isOpen));
+      $("#menuToggle").setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     });
 
     $$("#mobileMenu a").forEach(a => a.addEventListener("click", () => {
       $("#mobileMenu").classList.remove("open");
+      $("#menuToggle").setAttribute("aria-expanded", "false");
+      $("#menuToggle").setAttribute("aria-label", "Open menu");
     }));
 
     $$("#desktopNav a, #mobileMenu a").forEach(a => {
@@ -2877,6 +2942,8 @@
         closePalette();
         closeProject();
         $("#mobileMenu").classList.remove("open");
+        $("#menuToggle").setAttribute("aria-expanded", "false");
+        $("#menuToggle").setAttribute("aria-label", "Open menu");
       }
     });
 
@@ -2886,7 +2953,7 @@
        INIT
        ========================================================= */
     const savedTheme = localStorage.getItem("dhananjay-theme");
-    applyTheme(savedTheme === "light" ? "light" : "dark");
+    applyTheme(savedTheme === "dark" ? "dark" : "light");
 
     if (PORTFOLIO.linkedin !== "#") {
       ["linkedinSide", "linkedinContact", "linkedinFooter"].forEach(id => {
